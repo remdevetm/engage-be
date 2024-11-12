@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "P/nfilvqmgM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\USER\\source\\repos\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
+  "logs": []
+}

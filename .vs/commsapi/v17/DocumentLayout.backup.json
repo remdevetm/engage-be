@@ -1,0 +1,1029 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\commsapi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\messages\\eventhandlers\\domain\\messagecreatedeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\messages\\eventhandlers\\domain\\messagecreatedeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\data\\interceptors\\dispatchdomaineventsinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\data\\interceptors\\dispatchdomaineventsinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\data\\interceptors\\auditableentityinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\data\\interceptors\\auditableentityinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\messages\\commands\\createmessage\\createmessagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\messages\\commands\\createmessage\\createmessagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\behaviors\\loggingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\behaviors\\loggingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\behaviors\\validationbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\behaviors\\validationbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.api\\endpoints\\message\\createmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|solutionrelative:services\\comms.api\\endpoints\\message\\createmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\events\\messagecreatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\events\\messagecreatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.api\\comms.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|solutionrelative:services\\comms.api\\comms.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\comms.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\comms.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\comms.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\comms.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|solutionrelative:services\\comms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\comms.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\comms.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\messages\\commands\\createmessage\\createmessagecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\messages\\commands\\createmessage\\createmessagecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.api\\endpoints\\message\\getmessagesbyagent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|solutionrelative:services\\comms.api\\endpoints\\message\\getmessagesbyagent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.api\\endpoints\\message\\getmessagesbyagentandclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|solutionrelative:services\\comms.api\\endpoints\\message\\getmessagesbyagentandclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.api\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|solutionrelative:services\\comms.api\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.api\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|solutionrelative:services\\comms.api\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\dtos\\messagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\dtos\\messagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\data\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\data\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\data\\configurations\\messageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\data\\configurations\\messageconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8F2D9CC-3A80-493B-9B85-FAE99C63E199}|Services\\Comms.API\\Comms.API.csproj|solutionrelative:services\\comms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\messages\\queries\\getmessagesbyagent\\getmessagesbyagenthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\messages\\queries\\getmessagesbyagent\\getmessagesbyagenthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\messages\\queries\\getmessagesbyagent\\getmessagesbyagentquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\messages\\queries\\getmessagesbyagent\\getmessagesbyagentquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\abstractions\\aggregate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\abstractions\\aggregate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\data\\extensions\\databaseextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\data\\extensions\\databaseextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.infrastructure\\data\\extensions\\initialdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D26ACDCB-A238-4CEF-8F8D-8EC1095A6C45}|Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj|solutionrelative:services\\comms.infrastructure\\data\\extensions\\initialdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\abstractions\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\abstractions\\ientity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\abstractions\\idomainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\abstractions\\idomainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\abstractions\\iaggregate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\abstractions\\iaggregate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\abstractions\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\abstractions\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\helpers\\guidconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\helpers\\guidconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\exceptions\\internalserverexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\exceptions\\internalserverexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\exceptions\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\exceptions\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\cqrs\\iqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\cqrs\\iqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\cqrs\\iquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\cqrs\\iquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\cqrs\\icommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\cqrs\\icommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks\\cqrs\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B549D79-EB84-4424-817F-68813D96A9D8}|BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj|solutionrelative:buildingblocks\\buildingblocks\\cqrs\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\enums\\channel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\enums\\channel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\enums\\direction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\enums\\direction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\services\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\services\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\extensions\\messageextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\extensions\\messageextentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\messages\\queries\\getmessagesbyagentandclient\\getmessagesbyagentandclienthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\messages\\queries\\getmessagesbyagentandclient\\getmessagesbyagentandclienthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\messages\\queries\\getmessagesbyagentandclient\\getmessagesbyagentandclientquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\messages\\queries\\getmessagesbyagentandclient\\getmessagesbyagentandclientquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\messages\\eventhandlers\\integration\\messagecreatedintegrationeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\messages\\eventhandlers\\integration\\messagecreatedintegrationeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\valueobjects\\agentid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\valueobjects\\agentid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\valueobjects\\clientid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\valueobjects\\clientid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D49B294E-8FB5-4774-9384-D8C19D18DC9E}|BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj|c:\\users\\user\\source\\repos\\commsapi\\buildingblocks\\buildingblocks.messaging\\masstransit\\extentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D49B294E-8FB5-4774-9384-D8C19D18DC9E}|BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj|solutionrelative:buildingblocks\\buildingblocks.messaging\\masstransit\\extentions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\AppData\\Local\\SourceServer\\80f045e31712860fd12de7fd6d8f1693896da760f8e2327d468e1f5daeae66e5\\AbstractValidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.application\\exceptions\\messagenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EDAAD4F-9EBC-4D3E-9E52-C26754C3AAB0}|Services\\Comms.Application\\Comms.Application.csproj|solutionrelative:services\\comms.application\\exceptions\\messagenotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\valueobjects\\messageid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\valueobjects\\messageid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|c:\\users\\user\\source\\repos\\commsapi\\services\\comms.domain\\valueobjects\\replytomessageid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DE9CB73-B42A-47E7-BCCD-BBFDC960A493}|Services\\Comms.Domain\\Comms.Domain.csproj|solutionrelative:services\\comms.domain\\valueobjects\\replytomessageid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateMessageHandler.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Commands\\CreateMessage\\CreateMessageHandler.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Messages\\Commands\\CreateMessage\\CreateMessageHandler.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Commands\\CreateMessage\\CreateMessageHandler.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Messages\\Commands\\CreateMessage\\CreateMessageHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T04:36:17.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Message.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Models\\Message.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Models\\Message.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Models\\Message.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Models\\Message.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA8wBEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T18:59:12.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuditableEntityInterceptor.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Interceptors\\AuditableEntityInterceptor.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\Data\\Interceptors\\AuditableEntityInterceptor.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Interceptors\\AuditableEntityInterceptor.cs",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\Data\\Interceptors\\AuditableEntityInterceptor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T20:26:18.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DispatchDomainEventsInterceptor.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Interceptors\\DispatchDomainEventsInterceptor.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\Data\\Interceptors\\DispatchDomainEventsInterceptor.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Interceptors\\DispatchDomainEventsInterceptor.cs",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\Data\\Interceptors\\DispatchDomainEventsInterceptor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T20:26:36.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MessageCreatedEventHandler.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\EventHandlers\\Domain\\MessageCreatedEventHandler.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Messages\\EventHandlers\\Domain\\MessageCreatedEventHandler.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\EventHandlers\\Domain\\MessageCreatedEventHandler.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Messages\\EventHandlers\\Domain\\MessageCreatedEventHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T04:50:27.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoggingBehavior.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Behaviors\\LoggingBehavior.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\Behaviors\\LoggingBehavior.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Behaviors\\LoggingBehavior.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\Behaviors\\LoggingBehavior.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T06:45:26.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ValidationBehavior.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Behaviors\\ValidationBehavior.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\Behaviors\\ValidationBehavior.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Behaviors\\ValidationBehavior.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\Behaviors\\ValidationBehavior.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T06:45:28.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateMessage.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Endpoints\\Message\\CreateMessage.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.API\\Endpoints\\Message\\CreateMessage.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Endpoints\\Message\\CreateMessage.cs",
+              "RelativeToolTip": "Services\\Comms.API\\Endpoints\\Message\\CreateMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T05:37:48.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MessageCreatedEvent.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Events\\MessageCreatedEvent.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Events\\MessageCreatedEvent.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Events\\MessageCreatedEvent.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Events\\MessageCreatedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T19:40:13.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\DependencyInjection.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:45:00.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GetMessagesByAgentAndClient.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Endpoints\\Message\\GetMessagesByAgentAndClient.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.API\\Endpoints\\Message\\GetMessagesByAgentAndClient.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Endpoints\\Message\\GetMessagesByAgentAndClient.cs",
+              "RelativeToolTip": "Services\\Comms.API\\Endpoints\\Message\\GetMessagesByAgentAndClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T11:13:18.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CreateMessageCommand.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Commands\\CreateMessage\\CreateMessageCommand.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Messages\\Commands\\CreateMessage\\CreateMessageCommand.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Commands\\CreateMessage\\CreateMessageCommand.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Messages\\Commands\\CreateMessage\\CreateMessageCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:35:24.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Services\\Comms.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\appsettings.json",
+              "RelativeToolTip": "Services\\Comms.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-25T05:16:23.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Comms.Application.csproj",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Comms.Application.csproj",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Comms.Application.csproj",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Comms.Application.csproj",
+              "RelativeToolTip": "Services\\Comms.Application\\Comms.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-24T17:45:36.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Comms.API.csproj",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Comms.API.csproj",
+              "RelativeDocumentMoniker": "Services\\Comms.API\\Comms.API.csproj",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Comms.API.csproj",
+              "RelativeToolTip": "Services\\Comms.API\\Comms.API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-25T03:53:40.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Comms.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-24T20:00:08.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Comms.Domain.csproj",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Comms.Domain.csproj",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Comms.Domain.csproj",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Comms.Domain.csproj",
+              "RelativeToolTip": "Services\\Comms.Domain\\Comms.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-24T17:49:07.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GetMessagesByAgent.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Endpoints\\Message\\GetMessagesByAgent.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.API\\Endpoints\\Message\\GetMessagesByAgent.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Endpoints\\Message\\GetMessagesByAgent.cs",
+              "RelativeToolTip": "Services\\Comms.API\\Endpoints\\Message\\GetMessagesByAgent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T11:08:52.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "GlobalUsing.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\GlobalUsing.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.API\\GlobalUsing.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\GlobalUsing.cs",
+              "RelativeToolTip": "Services\\Comms.API\\GlobalUsing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:50:24.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.API\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\DependencyInjection.cs",
+              "RelativeToolTip": "Services\\Comms.API\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:56:25.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MessageDto.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Dtos\\MessageDto.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Dtos\\MessageDto.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Dtos\\MessageDto.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Dtos\\MessageDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:22:27.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Data\\IApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Data\\IApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Data\\IApplicationDbContext.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Data\\IApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T21:26:07.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T20:13:42.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GlobalUsing.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\GlobalUsing.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\GlobalUsing.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\GlobalUsing.cs",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\GlobalUsing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T20:13:18.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T21:19:48.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "MessageConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Configurations\\MessageConfiguration.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\Data\\Configurations\\MessageConfiguration.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Configurations\\MessageConfiguration.cs",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\Data\\Configurations\\MessageConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T20:21:42.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DomainException.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Exceptions\\DomainException.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Exceptions\\DomainException.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Exceptions\\DomainException.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Exceptions\\DomainException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T18:05:39.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Program.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.API\\Program.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.API\\Program.cs",
+              "RelativeToolTip": "Services\\Comms.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:55:32.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "GetMessagesByAgentQuery.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgent\\GetMessagesByAgentQuery.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgent\\GetMessagesByAgentQuery.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgent\\GetMessagesByAgentQuery.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgent\\GetMessagesByAgentQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T10:46:36.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "GetMessagesByAgentHandler.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgent\\GetMessagesByAgentHandler.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgent\\GetMessagesByAgentHandler.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgent\\GetMessagesByAgentHandler.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgent\\GetMessagesByAgentHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T10:37:52.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Aggregate.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\Aggregate.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Abstractions\\Aggregate.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\Aggregate.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Abstractions\\Aggregate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:50:26.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "GlobalUsing.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\GlobalUsing.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\GlobalUsing.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\GlobalUsing.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\GlobalUsing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:19:43.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "DatabaseExtentions.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Extensions\\DatabaseExtentions.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\Data\\Extensions\\DatabaseExtentions.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Extensions\\DatabaseExtentions.cs",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\Data\\Extensions\\DatabaseExtentions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T20:22:08.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "InitialData.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Extensions\\InitialData.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Infrastructure\\Data\\Extensions\\InitialData.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Infrastructure\\Data\\Extensions\\InitialData.cs",
+              "RelativeToolTip": "Services\\Comms.Infrastructure\\Data\\Extensions\\InitialData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T20:22:25.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IDomainEvent.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\IDomainEvent.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Abstractions\\IDomainEvent.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\IDomainEvent.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Abstractions\\IDomainEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T18:00:52.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "IAggregate.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\IAggregate.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Abstractions\\IAggregate.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\IAggregate.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Abstractions\\IAggregate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:59:35.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\Entity.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Abstractions\\Entity.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\Entity.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Abstractions\\Entity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:58:45.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Services\\EmailService.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Services\\EmailService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAQwB0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T11:50:51.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\CQRS\\IQueryHandler.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\CQRS\\IQueryHandler.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\CQRS\\IQueryHandler.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\CQRS\\IQueryHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T09:12:56.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "IEntity.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\IEntity.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Abstractions\\IEntity.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Abstractions\\IEntity.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Abstractions\\IEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T18:04:17.582Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "BadRequestException.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Exceptions\\BadRequestException.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\Exceptions\\BadRequestException.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Exceptions\\BadRequestException.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\Exceptions\\BadRequestException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T11:32:19.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "ICommand.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\CQRS\\ICommand.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\CQRS\\ICommand.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\CQRS\\ICommand.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\CQRS\\ICommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T09:12:53.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "ICommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\CQRS\\ICommandHandler.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\CQRS\\ICommandHandler.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\CQRS\\ICommandHandler.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\CQRS\\ICommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T09:12:54.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Exceptions\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\Exceptions\\NotFoundException.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Exceptions\\NotFoundException.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\Exceptions\\NotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T09:13:00.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "GuidConverter.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Helpers\\GuidConverter.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\Helpers\\GuidConverter.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Helpers\\GuidConverter.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\Helpers\\GuidConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T07:37:10.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "InternalServerException.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Exceptions\\InternalServerException.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\Exceptions\\InternalServerException.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\Exceptions\\InternalServerException.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\Exceptions\\InternalServerException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T11:32:20.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Channel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Enums\\Channel.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Enums\\Channel.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Enums\\Channel.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Enums\\Channel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:56:49.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "IQuery.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\CQRS\\IQuery.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks\\CQRS\\IQuery.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks\\CQRS\\IQuery.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks\\CQRS\\IQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T11:32:25.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Direction.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Enums\\Direction.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\Enums\\Direction.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\Enums\\Direction.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\Enums\\Direction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T19:03:48.799Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Services\\Interfaces\\IEmailService.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Services\\Interfaces\\IEmailService.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Services\\Interfaces\\IEmailService.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Services\\Interfaces\\IEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T11:48:09.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "MessageExtentions.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Extensions\\MessageExtentions.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Extensions\\MessageExtentions.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Extensions\\MessageExtentions.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Extensions\\MessageExtentions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:29:45.8Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "GetMessagesByAgentAndClientHandler.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgentAndClient\\GetMessagesByAgentAndClientHandler.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgentAndClient\\GetMessagesByAgentAndClientHandler.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgentAndClient\\GetMessagesByAgentAndClientHandler.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgentAndClient\\GetMessagesByAgentAndClientHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T10:50:18.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "GetMessagesByAgentAndClientQuery.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgentAndClient\\GetMessagesByAgentAndClientQuery.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgentAndClient\\GetMessagesByAgentAndClientQuery.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgentAndClient\\GetMessagesByAgentAndClientQuery.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Messages\\Queries\\GetMessagesByAgentAndClient\\GetMessagesByAgentAndClientQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T10:50:54.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "MessageCreatedIntegrationEventHandler.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\EventHandlers\\Integration\\MessageCreatedIntegrationEventHandler.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Messages\\EventHandlers\\Integration\\MessageCreatedIntegrationEventHandler.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Messages\\EventHandlers\\Integration\\MessageCreatedIntegrationEventHandler.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Messages\\EventHandlers\\Integration\\MessageCreatedIntegrationEventHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T05:14:53.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "AgentId.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\ValueObjects\\AgentId.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\ValueObjects\\AgentId.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\ValueObjects\\AgentId.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\ValueObjects\\AgentId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAEAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T19:16:05.158Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ClientId.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\ValueObjects\\ClientId.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\ValueObjects\\ClientId.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\ValueObjects\\ClientId.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\ValueObjects\\ClientId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T19:15:04.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "GlobalUsing.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\GlobalUsing.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\GlobalUsing.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\GlobalUsing.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\GlobalUsing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T17:50:53.443Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "AbstractValidator.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\AppData\\Local\\SourceServer\\80f045e31712860fd12de7fd6d8f1693896da760f8e2327d468e1f5daeae66e5\\AbstractValidator.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\80f045e31712860fd12de7fd6d8f1693896da760f8e2327d468e1f5daeae66e5\\AbstractValidator.cs",
+              "ToolTip": "C:\\Users\\USER\\AppData\\Local\\SourceServer\\80f045e31712860fd12de7fd6d8f1693896da760f8e2327d468e1f5daeae66e5\\AbstractValidator.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\80f045e31712860fd12de7fd6d8f1693896da760f8e2327d468e1f5daeae66e5\\AbstractValidator.cs",
+              "ViewState": "AgIAADQBAAAAAAAAAAAUwEMBAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T05:17:49.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Extentions.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks.Messaging\\MassTransit\\Extentions.cs",
+              "RelativeDocumentMoniker": "BuildingBlocks\\BuildingBlocks.Messaging\\MassTransit\\Extentions.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\BuildingBlocks\\BuildingBlocks.Messaging\\MassTransit\\Extentions.cs",
+              "RelativeToolTip": "BuildingBlocks\\BuildingBlocks.Messaging\\MassTransit\\Extentions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:46:11.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "MessageNotFoundException.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Exceptions\\MessageNotFoundException.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Application\\Exceptions\\MessageNotFoundException.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Application\\Exceptions\\MessageNotFoundException.cs",
+              "RelativeToolTip": "Services\\Comms.Application\\Exceptions\\MessageNotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T03:27:52.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "ReplyToMessageId.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\ValueObjects\\ReplyToMessageId.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\ValueObjects\\ReplyToMessageId.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\ValueObjects\\ReplyToMessageId.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\ValueObjects\\ReplyToMessageId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T19:28:57.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "MessageId.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\ValueObjects\\MessageId.cs",
+              "RelativeDocumentMoniker": "Services\\Comms.Domain\\ValueObjects\\MessageId.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\commsapi\\Services\\Comms.Domain\\ValueObjects\\MessageId.cs",
+              "RelativeToolTip": "Services\\Comms.Domain\\ValueObjects\\MessageId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T19:04:46.093Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
