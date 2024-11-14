@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj": {}
+    "C:\\Param\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj": {
+    "C:\\Param\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+        "projectUniqueName": "C:\\Param\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
         "projectName": "ApiGateway",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\engage-be\\ApiGateway\\ApiGateway\\obj\\",
+        "projectPath": "C:\\Param\\engage-be\\ApiGateway\\ApiGateway\\ApiGateway.csproj",
+        "packagesPath": "C:\\Users\\ayola\\.nuget\\packages\\",
+        "outputPath": "C:\\Param\\engage-be\\ApiGateway\\ApiGateway\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ayola\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,7 +27,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/khumlaplatform/khumlaplatform/_packaging/KhumlaFeed/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -39,11 +40,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -74,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

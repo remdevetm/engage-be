@@ -1,6 +1,6 @@
 ﻿namespace Comms.Application.Messages.EventHandlers.Domain;
 public class MessageCreatedEventHandler
-    (IPublishEndpoint publishEndpoint, IFeatureManager featureManager, ILogger<MessageCreatedEventHandler> logger, IEmailService emailService)
+    (IPublishEndpoint publishEndpoint, IFeatureManager featureManager, ILogger<MessageCreatedEventHandler> logger, IMessagingService messagingService)
     : INotificationHandler<MessageCreatedEvent>
 {
     public async Task Handle(MessageCreatedEvent domainEvent, CancellationToken cancellationToken)
@@ -9,9 +9,13 @@ public class MessageCreatedEventHandler
 
         if (await featureManager.IsEnabledAsync("MessageFullfilment"))
         {
-            var messageCreatedIntegrationEvent = domainEvent.message.ToMessageDto();
+            var messageCreatedIntegrationEvent = domainEvent.message;
             if(messageCreatedIntegrationEvent.Channel == Channel.Email && messageCreatedIntegrationEvent.Direction == Direction.Outbound)
-                await emailService.SendEmail(messageCreatedIntegrationEvent.To, "Comms", messageCreatedIntegrationEvent.Text);
+                await messagingService.SendEmail(messageCreatedIntegrationEvent.To, messageCreatedIntegrationEvent.Subject, messageCreatedIntegrationEvent.Text);
+            else if(messageCreatedIntegrationEvent.Channel == Channel.SMS && messageCreatedIntegrationEvent.Direction == Direction.Outbound)
+                await messagingService.SendSms(messageCreatedIntegrationEvent.To, messageCreatedIntegrationEvent.Text);
+            else if(messageCreatedIntegrationEvent.Channel == Channel.Whatsapp && messageCreatedIntegrationEvent.Direction == Direction.Outbound)
+                await messagingService.SendWhatsApp(messageCreatedIntegrationEvent.To, messageCreatedIntegrationEvent.Text);
             //await publishEndpoint.Publish(messageCreatedIntegrationEvent, cancellationToken);
         }
     }

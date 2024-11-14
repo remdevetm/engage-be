@@ -10,10 +10,8 @@ namespace Comms.Application.Extensions
                 ClientId: message.ClientId,
                 AgentId: message.AgentId,
                 ReplyToMessageId: message.ReplyToMessageId,
+                Subject: message.Subject,
                 Text: message.Text,
-                Channel: message.Channel,
-                Direction: message.Direction,
-                From: message.From,
                 To: message.To
             ));
         }
@@ -31,9 +29,7 @@ namespace Comms.Application.Extensions
                 AgentId: message.AgentId,
                 ReplyToMessageId: message.ReplyToMessageId,
                 Text: message.Text,
-                Channel: message.Channel,
-                Direction: message.Direction,
-                From: message.From,
+                Subject: message.Subject,
                 To: message.To
              );
         }

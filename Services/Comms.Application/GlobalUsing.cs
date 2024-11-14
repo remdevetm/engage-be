@@ -18,3 +18,5 @@ global using Microsoft.Extensions.Logging;
 global using Comms.Application.Extensions;
 global using Comms.Application.Data;
 global using Comms.Application.Services.Interfaces;
+global using Comms.Application.Messages.Commands.CreateMessage;
+global using Comms.Domain.Services;

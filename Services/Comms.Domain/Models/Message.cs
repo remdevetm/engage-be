@@ -5,7 +5,7 @@ public class Message : Aggregate<string>
     public string ClientId { get; private set; } = default!;
     public string AgentId { get; private set; } = default!;
     public string ReplyToMessageId { get; private set; } = default!;
-
+    public string Subject { get; private set; } = default!;
     public string Text { get; private set; } = default!;
     public Channel Channel { get; private set; } = Channel.None;
     public Direction Direction { get; private set; } = Direction.None;
@@ -14,7 +14,7 @@ public class Message : Aggregate<string>
 
 
     public static Message Create(string id, string clientId, string agentId, string replyToMessageId, string text, Channel channel, Direction direction,
-        string from, string to)
+        string from, string to, string subject)
     {
         var message = new Message
         {
@@ -26,7 +26,8 @@ public class Message : Aggregate<string>
             Channel = channel,
             Direction = direction,
             From = from,
-            To = to
+            To = to,
+            Subject = subject
         };
 
         message.AddDomainEvent(new MessageCreatedEvent(message));

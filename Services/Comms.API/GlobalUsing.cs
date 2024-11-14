@@ -6,3 +6,6 @@ global using HealthChecks.UI.Client;
 global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 global using Comms.Application.Dtos;
 global using Comms.Application.Messages.Commands.CreateMessage;
+global using Comms.Application.Messages.Commands.SendEmailMessage;
+global using Comms.Application.Messages.Commands.SendSMSMessage;
+global using Comms.Application.Messages.Commands.SendWhatsappMessage;

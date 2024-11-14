@@ -23,9 +23,10 @@ public class CreateMessageHandler(IApplicationDbContext dbContext)
                 agentId: messageDto.AgentId,
                 replyToMessageId: messageDto.ReplyToMessageId,
                 text: messageDto.Text,
-                channel: messageDto.Channel,
-                direction: messageDto.Direction,
-                from: messageDto.From,
+                channel: Channel.None,
+                direction: Direction.None,
+                from: "System",
+                subject: messageDto.Subject,
                 to: messageDto.To
                 );
         return newMessage;

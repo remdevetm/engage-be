@@ -5,7 +5,5 @@ public record MessageDto(
     string AgentId,
     string ReplyToMessageId,
     string Text,
-    Channel Channel,
-    Direction Direction,
-    string From,
+    string Subject,
     string To);

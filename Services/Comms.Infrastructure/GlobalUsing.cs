@@ -13,3 +13,8 @@ global using Microsoft.Extensions.Configuration;
 global using Comms.Application.Data;
 global using MongoDB.Driver;
 global using Comms.Infrastructure.Data.Interceptors;
+global using Comms.Domain.Services;
+global using SendGrid.Helpers.Mail;
+global using SendGrid;
+global using Twilio;
+global using Twilio.Rest.Api.V2010.Account;
