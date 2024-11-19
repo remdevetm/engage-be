@@ -22,3 +22,16 @@ C:\Users\USER\source\repos\commsapi\BuildingBlocks\BuildingBlocks\obj\Debug\net8
 C:\Users\USER\source\repos\commsapi\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\refint\BuildingBlocks.dll
 C:\Users\USER\source\repos\commsapi\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.pdb
 C:\Users\USER\source\repos\commsapi\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\ref\BuildingBlocks.dll
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.deps.json
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.dll
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\bin\Debug\net8.0\BuildingBlocks.pdb
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.AssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.sourcelink.json
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.dll
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\refint\BuildingBlocks.dll
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\BuildingBlocks.pdb
+C:\Users\Administrator\Documents\GitHub\engage-be\BuildingBlocks\BuildingBlocks\obj\Debug\net8.0\ref\BuildingBlocks.dll

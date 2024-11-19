@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.API\\Comms.API.csproj": {}
+    "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.API\\Comms.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj",
         "projectName": "BuildingBlocks.Messaging",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\obj\\",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,21 +71,17 @@
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj",
         "projectName": "BuildingBlocks",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks\\obj\\",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -166,21 +158,17 @@
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.API\\Comms.API.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.API\\Comms.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.API\\Comms.API.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.API\\Comms.API.csproj",
         "projectName": "Comms.API",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.API\\Comms.API.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.API\\obj\\",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.API\\Comms.API.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -195,11 +183,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj"
+              "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj"
               },
-              "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj"
+              "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj"
               }
             }
           }
@@ -259,21 +247,17 @@
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj",
         "projectName": "Comms.Application",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Application\\obj\\",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -288,14 +272,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj"
+              "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks.Messaging\\BuildingBlocks.Messaging.csproj"
               },
-              "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj"
+              "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\BuildingBlocks\\BuildingBlocks\\BuildingBlocks.csproj"
               },
-              "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj"
+              "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj"
               }
             }
           }
@@ -344,21 +328,17 @@
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj",
         "projectName": "Comms.Domain",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -415,21 +395,17 @@
         }
       }
     },
-    "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj",
         "projectName": "Comms.Infrastructure",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Infrastructure\\Comms.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -444,8 +420,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj": {
-                "projectPath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj"
+              "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\engage-be\\Services\\Comms.Application\\Comms.Application.csproj"
               }
             }
           }
