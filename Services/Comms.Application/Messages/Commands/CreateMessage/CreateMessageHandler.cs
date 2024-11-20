@@ -27,8 +27,8 @@ public class CreateMessageHandler(IApplicationDbContext dbContext)
                 direction: Direction.None,
                 from: "System",
                 subject: messageDto.Subject,
-                to: messageDto.To
-                );
+                to: messageDto.To,
+                status:Status.New);
         return newMessage;
     }
 }

@@ -9,3 +9,4 @@ global using Comms.Application.Messages.Commands.CreateMessage;
 global using Comms.Application.Messages.Commands.SendEmailMessage;
 global using Comms.Application.Messages.Commands.SendSMSMessage;
 global using Comms.Application.Messages.Commands.SendWhatsappMessage;
+global using Comms.Application.Messages.Commands.MarkMessageAsRead;

@@ -24,6 +24,11 @@ public class MessageConfiguration : IEntityTypeConfiguration<Message>
                 m => m.ToString(),
                 dbStatus => (Direction)Enum.Parse(typeof(Direction), dbStatus));
 
+        builder.Property(m => m.Status)
+               .HasConversion(
+               m => m.ToString(),
+               dbStatus => (Status)Enum.Parse(typeof(Status), dbStatus));
+
         builder.Property(m => m.From);
 
         builder.Property(m => m.To);

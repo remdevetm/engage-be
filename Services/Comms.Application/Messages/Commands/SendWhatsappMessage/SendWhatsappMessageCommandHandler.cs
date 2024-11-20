@@ -24,7 +24,8 @@
                                direction: Direction.Outbound,
                                from: "System",
                                subject: messageDto.Subject,
-                               to: messageDto.To);
+                               to: messageDto.To,
+                                status: Status.New);
             return message;
         }
     }

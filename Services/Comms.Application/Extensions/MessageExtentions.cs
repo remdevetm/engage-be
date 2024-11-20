@@ -12,7 +12,8 @@ namespace Comms.Application.Extensions
                 ReplyToMessageId: message.ReplyToMessageId,
                 Subject: message.Subject,
                 Text: message.Text,
-                To: message.To
+                To: message.To,
+                From: message.From
             ));
         }
 
@@ -30,7 +31,8 @@ namespace Comms.Application.Extensions
                 ReplyToMessageId: message.ReplyToMessageId,
                 Text: message.Text,
                 Subject: message.Subject,
-                To: message.To
+                To: message.To,
+                From: message.From
              );
         }
     }
