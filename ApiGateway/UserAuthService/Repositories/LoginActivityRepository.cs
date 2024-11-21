@@ -16,7 +16,7 @@ namespace UserAuthService.Repositories
             _loginActivities = context.LoginActivities;
         }
 
-        public async Task<bool> LogLoginActivity(string userId, LoginActivityType type)
+        public async Task<bool> LogLoginActivity(string userId)
         {
             try
             {

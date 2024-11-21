@@ -232,10 +232,8 @@ namespace ApiGateway.UserAuthService.Controllers
         [Authorize(Roles = "Agent")]
         public async Task<ActionResult<UserResponseModel>> ChangePassword([FromBody] ChangePasswordRequestModel request)
         { 
-            // Prevent using the same password
             try
             {
-                // Validate request model
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
@@ -253,165 +251,28 @@ namespace ApiGateway.UserAuthService.Controllers
             }
         }
 
+        [HttpPut("ResetPassword")]
+        [Authorize(Roles = "Agent,Admin")]
+        public async Task<ActionResult<UserResponseModel>> ResetPassword([FromBody] ChangePasswordRequestModel request)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
+                }
 
-        //[HttpPost("LogoutAgent")]
-        //[Authorize(Roles = "Agent,Admin")]
-        //public async Task<IActionResult> LogoutAgent()
-        //{
-        //    try
-        //    {
-        //        // Log logout activity
-        //        string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        //        if (!string.IsNullOrEmpty(userId))
-        //        {
-        //            bool logResult = await _loginActivityRepository.LogLogoutActivity(userId);
-        //            if (!logResult)
-        //            {
-        //                _logger.LogError($"Failed to log logout activity for User {userId}.");
-        //                return StatusCode(500, "Failed to log logout activity.");
-        //            }
-        //        }
+                // Change password
+                var changePasswordResult = await _userRepository.ResetPassword(request);
 
-        //        // Note: JWT tokens are stateless. To invalidate tokens, consider implementing a token blacklist.
-        //        return Ok(new { Message = "Logout successful." });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError($"Error during Agent logout: {ex.Message}");
-        //        return BadRequest(new { Message = $"Error during logout: {ex.Message}" });
-        //    }
-        //}
-
-
-        //[HttpDelete("DeleteAgent/{agentId}")]
-        //[Authorize(Roles = "Agent,Admin")]
-        //public async Task<ActionResult<UserResponseModel>> DeleteAgent(string agentId)
-        //{
-
-        //    try
-        //    {
-        //        if (string.IsNullOrEmpty(agentId))
-        //        {
-        //            return BadRequest(new UserResponseModel(null, "Agent ID is required.", true));
-        //        }
-
-        //        // Retrieve the agent to ensure they exist and are an Agent
-        //        var getUserResult = await _userRepository.GetByIdAsync(agentId);
-        //        if (getUserResult.Error || getUserResult.Data == null)
-        //        {
-        //            return NotFound(new UserResponseModel(null, "Agent not found.", true));
-        //        }
-
-        //        if (getUserResult.Data.UserType != UserType.Agent)
-        //        {
-        //            return BadRequest(new UserResponseModel(null, "Specified user is not an Agent.", true));
-        //        }
-
-        //        // Update the user's status to Deleted
-        //        var updateStatusResult = await _userRepository.UpdateUserStatus(agentId, UserStatus.Deleted);
-        //        if (updateStatusResult.Error)
-        //        {
-        //            return BadRequest(updateStatusResult);
-        //        }
-
-        //        // Log admin's action
-        //        string adminId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        //        _logger.LogInformation($"Admin {adminId} deleted Agent {agentId}.");
-
-        //        return Ok(new UserResponseModel(null, "Agent deleted successfully."));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError($"Error deleting agent: {ex.Message}");
-        //        return BadRequest(new UserResponseModel(null, $"Error deleting agent: {ex.Message}", true));
-        //    }
-        //}
-
-
-        //[HttpDelete("DeleteAdmin/{adminId}")]
-        //[Authorize(Roles = "Admin")]
-        //public async Task<ActionResult<UserResponseModel>> DeleteAdmin(string adminId)
-        //{
-        //    if (string.IsNullOrEmpty(adminId))
-        //    {
-        //        return BadRequest(new UserResponseModel(null, "Admin ID is required.", true));
-        //    }
-
-        //    try
-        //    {
-        //        // Retrieve the admin to ensure they exist and are an Admin
-        //        var getUserResult = await _userRepository.GetByIdAsync(adminId);
-        //        if (getUserResult.Error || getUserResult.Data == null)
-        //        {
-        //            return NotFound(new UserResponseModel(null, "Admin not found.", true));
-        //        }
-
-        //        if (getUserResult.Data.UserType != UserType.Admin)
-        //        {
-        //            return BadRequest(new UserResponseModel(null, "Specified user is not an Admin.", true));
-        //        }
-
-        //        // Prevent self-deletion
-        //        string currentAdminId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        //        if (adminId == currentAdminId)
-        //        {
-        //            return BadRequest(new UserResponseModel(null, "Admins cannot delete their own account.", true));
-        //        }
-
-        //        // Update the user's status to Deleted
-        //        var updateStatusResult = await _userRepository.UpdateUserStatus(adminId, UserStatus.Deleted);
-        //        if (updateStatusResult.Error)
-        //        {
-        //            return BadRequest(updateStatusResult);
-        //        }
-
-        //        // Log admin's action
-        //        _logger.LogInformation($"Admin {currentAdminId} deleted Admin {adminId}.");
-
-        //        return Ok(new UserResponseModel(null, "Admin deleted successfully."));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError($"Error deleting admin: {ex.Message}");
-        //        return BadRequest(new UserResponseModel(null, $"Error deleting admin: {ex.Message}", true));
-        //    }
-        //}
-
-
-
-        //[HttpPut("UpdateProfile")]
-        //[Authorize(Roles = "Agent,Admin")]
-        //public async Task<ActionResult<UserResponseModel>> UpdateProfile([FromBody] ProfileUpdateRequestModel updateModel)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    try
-        //    {
-        //        // Retrieve the user ID from the JWT token
-        //        string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        //        if (string.IsNullOrEmpty(userId))
-        //        {
-        //            return Unauthorized(new UserResponseModel(null, "Invalid user token.", true));
-        //        }
-
-        //        // Update the user's profile
-        //        var updateResult = await _userRepository.UpdateAsync(userId, updateModel);
-        //        if (updateResult.Error)
-        //        {
-        //            return BadRequest(updateResult);
-        //        }
-
-        //        return Ok(updateResult);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError($"Error updating profile: {ex.Message}");
-        //        return StatusCode(500, new UserResponseModel(null, "An unexpected error occurred while updating the profile.", true));
-        //    }
-        //}
+                return changePasswordResult.Data != null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error changing password: {ex.Message}");
+                return BadRequest(new UserResponseModel(null, $"Error changing password: {ex.Message}", true));
+            }
+        }
 
         private string GenerateTemporaryPassword()
         {
