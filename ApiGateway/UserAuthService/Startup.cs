@@ -10,6 +10,8 @@ using System.Text;
 using System.Collections.Generic;
 using UserAuthService.Services;
 using UserAuthService.Services.Interfaces;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UserAuthService
 {
@@ -102,26 +104,22 @@ namespace UserAuthService
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-                    options.Authority = Configuration["Jwt:Authority"];
-                    options.Audience = Configuration["Jwt:Audience"];
-                    options.RequireHttpsMetadata = true;
+                    options.Authority = AuthServerConfig.URL;
+                    options.Audience = AuthServerConfig.API_NAME;
+                    options.RequireHttpsMetadata = false;
 
-                    
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        RoleClaimType = "client_role" 
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        RoleClaimType = "client_role"  // This maps the client_role claim to roles
                     };
                 });
 
             // Configure Authorization Policies
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("AdminPolicy", policy =>
-                {
-                    policy.RequireAuthenticatedUser();
-                    policy.RequireRole("Admin");
-                });
-            });
+            services.AddAuthorization();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -137,6 +135,17 @@ namespace UserAuthService
             app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
+            // Optional: Middleware to log roles for debugging
+            app.Use(async (context, next) =>
+            {
+                var user = context.User;
+                if (user.Identity.IsAuthenticated)
+                {
+                    var roles = user.FindAll("client_role").Select(c => c.Value);
+                    Console.WriteLine($"User roles: {string.Join(", ", roles)}");
+                }
+                await next();
+            });
 
             app.UseEndpoints(endpoints =>
             {

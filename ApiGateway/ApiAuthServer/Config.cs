@@ -10,25 +10,25 @@ namespace ApiAuthServer
         public static IEnumerable<IdentityResource> IdentityResources =>
             new List<IdentityResource>
             {
-                new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
-                new IdentityResource("roles", "User roles", new[] { "role" })
+                // If you need specific identity resources, you can enable them here.
+                // new IdentityResource("client_role", "User roles", new[] { "client_role" })
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>
             {
-                new ApiScope("UserAuthServiceAPI", "User Auth Service API")
+            new ApiScope("UserAuthServiceAPI", "User Auth Service API")
             };
 
         public static IEnumerable<ApiResource> ApiResources =>
             new List<ApiResource>
             {
-                new ApiResource("UserAuthServiceAPI", "User Auth Service API")
-                {
-                    Scopes = { "UserAuthServiceAPI" },
-                    UserClaims = { "role" }
-                }
+            new ApiResource("UserAuthServiceAPI", "User Auth Service API")
+            {
+                Scopes = { "UserAuthServiceAPI" },
+                //UserClaims = { "role" },
+                //ApiSecrets = { new Secret("secret".Sha256()) }
+            }
             };
 
         public static IEnumerable<Client> Clients =>
@@ -36,11 +36,11 @@ namespace ApiAuthServer
             {
                 new Client
                 {
-                    ClientId = "EngageClient",
+                    ClientId = "AdminClient",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets =
                     {
-                        new Secret("secret".Sha256())
+                        new Secret("admin-secret".Sha256())
                     },
                     AllowedScopes = { "UserAuthServiceAPI" },
                     Claims = new List<ClientClaim>
@@ -48,33 +48,25 @@ namespace ApiAuthServer
                         new ClientClaim("role", "Admin")
                     },
                     AlwaysSendClientClaims = true
+                },
+                new Client
+                {
+                    ClientId = "AgentClient",
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    ClientSecrets =
+                    {
+                        new Secret("agent-secret".Sha256())
+                    },
+                    AllowedScopes = { "UserAuthServiceAPI" },
+                    Claims = new List<ClientClaim>
+                    {
+                        new ClientClaim("role", "Agent")
+                    },
+                    AlwaysSendClientClaims = true
                 }
             };
 
-        public static List<TestUser> TestUsers =>
-            new List<TestUser>
-            {
-                new TestUser
-                {
-                    SubjectId = "1",
-                    Username = "admin",
-                    Password = "password",
-                    Claims =
-                    {
-                        new Claim("role", "Admin")
-                    }
-                },
-                new TestUser
-                {
-                    SubjectId = "2",
-                    Username = "agent",
-                    Password = "password",
-                    Claims =
-                    {
-                        new Claim("role", "Agent")
-                    }
-                }
-            };
+
+
     }
 }
-

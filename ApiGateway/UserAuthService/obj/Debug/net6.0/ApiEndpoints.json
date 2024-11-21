@@ -2,7 +2,7 @@
   {
     "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
     "Method": "ChangePassword",
-    "RelativePath": "api/v1/User/ChangePassword",
+    "RelativePath": "api/v1/User/AgentChangePassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -79,58 +79,6 @@
   },
   {
     "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
-    "Method": "DeleteAdmin",
-    "RelativePath": "api/v1/User/DeleteAdmin/{adminId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "adminId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "UserAuthService.Models.ResponseModel.UserResponseModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
-    "Method": "DeleteAgent",
-    "RelativePath": "api/v1/User/DeleteAgent/{agentId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "agentId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "UserAuthService.Models.ResponseModel.UserResponseModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
     "Method": "LoginAdmin",
     "RelativePath": "api/v1/User/LoginAdmin",
     "HttpMethod": "POST",
@@ -145,7 +93,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "UserAuthService.Models.ResponseModel.UserLoginResponseModel",
+        "Type": "UserAuthService.Models.ResponseModel.UserResponseModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -166,42 +114,6 @@
       {
         "Name": "request",
         "Type": "UserAuthService.Models.RequestModel.LoginRequestModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "UserAuthService.Models.ResponseModel.UserLoginResponseModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
-    "Method": "LogoutAgent",
-    "RelativePath": "api/v1/User/LogoutAgent",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
-    "Method": "UpdateProfile",
-    "RelativePath": "api/v1/User/UpdateProfile",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "updateModel",
-        "Type": "UserAuthService.Models.RequestModel.ProfileUpdateRequestModel",
         "IsRequired": true
       }
     ],

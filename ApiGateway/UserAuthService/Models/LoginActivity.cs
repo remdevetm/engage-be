@@ -11,6 +11,12 @@ namespace UserAuthService.Models
         public string UserId { get; set; }
         public LoginActivityType ActivityType { get; set; }
         public DateTime DateTime { get; set; }
+
+        public LoginActivity(String userId)
+        {
+            UserId = userId;
+        } 
+        
     }
 
     public enum LoginActivityType

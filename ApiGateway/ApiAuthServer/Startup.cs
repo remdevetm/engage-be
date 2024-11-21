@@ -32,7 +32,7 @@ namespace IdentityServer
                 .AddInMemoryApiResources(Config.ApiResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
-                .AddTestUsers(Config.TestUsers)
+                //.AddTestUsers(Config.TestUsers)
                 .AddDeveloperSigningCredential();
 
             services.AddHealthChecks();

@@ -20,9 +20,9 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                var activity = new LoginActivity
+                var activity = new LoginActivity(userId)
                 {
-                    UserId = userId,
+                    //UserId = userId,
                     ActivityType = type,
                     DateTime = DateTime.UtcNow
                 };

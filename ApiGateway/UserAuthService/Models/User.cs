@@ -12,10 +12,10 @@ namespace UserAuthService.Models
         {
             Name = request.Name;
             Surname = request.Surname;
-            Email = request.Email;
+            Email = request.Email.ToLower();
             WorkingHours = request.WorkingHours;
             Position = request.Position;
-            PasswordHash = request.PasswordHash;
+
             Status = UserStatus.New;
             UserType = UserType.Agent;
             LastLogin = DateTime.UtcNow;
