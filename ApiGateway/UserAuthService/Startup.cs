@@ -6,12 +6,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MongoDB.Driver;
-using System.Text;
-using System.Collections.Generic;
 using UserAuthService.Services;
 using UserAuthService.Services.Interfaces;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
 
 namespace UserAuthService
 {
@@ -26,8 +22,6 @@ namespace UserAuthService
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add logging
-            services.AddLogging();
 
             // Register MongoDB client
             services.AddSingleton<IMongoClient>(sp =>
@@ -43,13 +37,7 @@ namespace UserAuthService
             services.AddScoped<IHashingService, HashingService>();
             services.AddScoped<IEmailService, EmailService>();
 
-            services.AddControllers()
-                .AddJsonOptions(options =>
-                {
-                    // Handle circular references and null values
-                    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
-                    options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
-                });
+            services.AddControllers();
 
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
@@ -118,7 +106,6 @@ namespace UserAuthService
                     };
                 });
 
-            // Configure Authorization Policies
             services.AddAuthorization();
         }
 
@@ -136,16 +123,16 @@ namespace UserAuthService
             app.UseAuthentication();
             app.UseAuthorization();
             // Optional: Middleware to log roles for debugging
-            app.Use(async (context, next) =>
-            {
-                var user = context.User;
-                if (user.Identity.IsAuthenticated)
-                {
-                    var roles = user.FindAll("client_role").Select(c => c.Value);
-                    Console.WriteLine($"User roles: {string.Join(", ", roles)}");
-                }
-                await next();
-            });
+            //app.Use(async (context, next) =>
+            //{
+            //    var user = context.User;
+            //    if (user.Identity.IsAuthenticated)
+            //    {
+            //        var roles = user.FindAll("client_role").Select(c => c.Value);
+            //        Console.WriteLine($"User roles: {string.Join(", ", roles)}");
+            //    }
+            //    await next();
+            //});
 
             app.UseEndpoints(endpoints =>
             {

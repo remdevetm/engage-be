@@ -78,7 +78,7 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                // Check if user with email already exists
+                
                 var filter = Builders<User>.Filter.Eq(u => u.Email, user.Email);
                 var existingUser = await _users.Find(filter).FirstOrDefaultAsync();
                 if (existingUser != null)
@@ -86,11 +86,11 @@ namespace UserAuthService.Repositories
                     return new UserResponseModel(null, "User with this email already exists", true);
                 }
 
-                // Hash password with checksum-based salt embedding
+                
                 string salt;
                 user.PasswordHash = _hashingService.Hash(user.PasswordHash, out salt);
 
-                // Insert the new user
+                
                 await _users.InsertOneAsync(user);
                 return new UserResponseModel(user, "User created successfully");
             }
@@ -132,13 +132,13 @@ namespace UserAuthService.Repositories
                         Builders<User>.Filter.Eq(u => u.Status, UserStatus.Verified)
                     )).FirstOrDefaultAsync();
 
-                // Verify current password
+
                 if (user == null || !_hashingService.Verify(request.CurrentPassword, user.PasswordHash))
                 {
                     return new UserResponseModel(null, "Invalid current password.", true);
                 }
 
-                // Hash new password
+
                 string salt;
                 string newPasswordHash = _hashingService.Hash(request.NewPassword, out salt);
                 
@@ -146,7 +146,7 @@ namespace UserAuthService.Repositories
                 {
                     return new UserResponseModel(null, "Cannot use same password.", true);
                 }
-                // Update password
+
                 var filter = Builders<User>.Filter.Eq(u => u.Id, request.UserId);
                 var update = Builders<User>.Update
                     .Set(u => u.PasswordHash, newPasswordHash)
@@ -172,7 +172,7 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                // Find the user first
+
                 var user = await _users.Find(
                     Builders<User>.Filter.And(
                         Builders<User>.Filter.Eq(u => u.Id, request.UserId),
@@ -180,7 +180,6 @@ namespace UserAuthService.Repositories
                         Builders<User>.Filter.Ne(u => u.Status, UserStatus.Deleted)
                     )).FirstOrDefaultAsync();
 
-                // Verify current password
                 if (user == null || !_hashingService.Verify(request.CurrentPassword, user.PasswordHash))
                 {
                     return new UserResponseModel(null, "Invalid current password.", true);
@@ -191,11 +190,11 @@ namespace UserAuthService.Repositories
                     return new UserResponseModel(null, "Invalid user type.", true);
                 }
 
-                // Hash new password
+
                 string salt;
                 string newPasswordHash = _hashingService.Hash(request.NewPassword, out salt);
 
-                // Update password
+
                 var filter = Builders<User>.Filter.Eq(u => u.Id, request.UserId);
                 var update = Builders<User>.Update
                     .Set(u => u.PasswordHash, newPasswordHash)

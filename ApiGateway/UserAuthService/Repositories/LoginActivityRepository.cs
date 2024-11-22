@@ -22,7 +22,6 @@ namespace UserAuthService.Repositories
             {
                 var activity = new LoginActivity(userId)
                 {
-                    //UserId = userId,
                     ActivityType = LoginActivityType.Login,
                     DateTime = DateTime.UtcNow
                 };
@@ -41,7 +40,6 @@ namespace UserAuthService.Repositories
             {
                 var activity = new LoginActivity(userId)
                 {
-                    //UserId = userId,
                     ActivityType = LoginActivityType.Logout,
                     DateTime = DateTime.UtcNow
                 };

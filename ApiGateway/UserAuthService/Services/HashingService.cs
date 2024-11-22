@@ -68,7 +68,7 @@ namespace UserAuthService.Services
             }
             catch (Exception ex)
             {
-                // Log the exception
+                
                 Console.WriteLine($"Verification error: {ex.Message}");
                 return false;
             }

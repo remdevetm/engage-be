@@ -128,9 +128,9 @@
 </head>
 <body style=""width:100%;height:100%;padding:0;margin:0;background-color:#f4f4f4;font-family:Arial,sans-serif;"">
     <div style=""width:100%;max-width:600px;margin:0 auto;background-color:#ffffff;padding:20px;box-shadow:0 0 10px rgba(0,0,0,0.1);"">
-        <div style=""text-align:center;padding:20px 0;"">
-            <img src=""https://eovwsew.stripocdn.email/content/guids/CABINET_01a3b21ebaa00abfcaf2f1678a33a1182b7105afe5bd44d98561066f5c8352e9/images/thootologo_1.png"" alt=""Thooto Logo"" style=""width:150px;"">
-        </div>
+        //<div style=""text-align:center;padding:20px 0;"">
+        //    <img src=""https://eovwsew.stripocdn.email/content/guids/CABINET_01a3b21ebaa00abfcaf2f1678a33a1182b7105afe5bd44d98561066f5c8352e9/images/thootologo_1.png"" alt=""Thooto Logo"" style=""width:150px;"">
+        //</div>
         <div style=""padding:20px;"">
             <h1 style=""font-size:24px;color:#333333;"">Welcome to Thooto!</h1>
             <p style=""font-size:16px;color:#666666;line-height:1.5;"">Dear [Name],</p>

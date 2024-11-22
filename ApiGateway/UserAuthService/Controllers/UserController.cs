@@ -180,7 +180,7 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest(new UserResponseModel(null, "You must change your password before proceeding.", true));
                 }
 
-                // Update last login and log activity
+                
                 await _userRepository.UpdateLastLogin(user.Id);
                 await _loginActivityRepository.LogLoginActivity(user.Id);
 
@@ -254,7 +254,7 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
                 }
 
-                // Change password
+                
                 var changePasswordResult = await _userRepository.ChangePassword(request);
 
                 return changePasswordResult.Data != null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
@@ -458,7 +458,6 @@ namespace ApiGateway.UserAuthService.Controllers
                     return NotFound("User not found.");
                 }
 
-                // Update user properties
                 user.Name = request.Name;
                 user.Surname = request.Surname;
                 user.WorkingHours = request.WorkingHours;
@@ -516,6 +515,43 @@ namespace ApiGateway.UserAuthService.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred during agent logout for user ID: {UserId}", userId);
+                return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred during logout");
+            }
+        }
+
+        [HttpPost("LogoutAdmin/{userId}")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> LogoutAdmin(string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                return BadRequest("Invalid user ID.");
+            }
+
+            try
+            {
+                var user = await _userRepository.GetUserById(userId);
+                if (user == null)
+                {
+                    return NotFound("User not found.");
+                }
+
+                if (user.UserType != UserType.Admin)
+                {
+                    return BadRequest("Only admins can logout through this endpoint.");
+                }
+
+                _logger.LogInformation("Admin logged out successfully. User ID: {UserId}", userId);
+                return Ok("Admin logged out successfully");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred during admin logout for user ID: {UserId}", userId);
                 return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred during logout");
             }
         }
