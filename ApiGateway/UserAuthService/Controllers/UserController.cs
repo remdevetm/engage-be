@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Org.BouncyCastle.Bcpg;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using UserAuthService.Models;
@@ -274,12 +275,124 @@ namespace ApiGateway.UserAuthService.Controllers
             }
         }
 
+        [HttpPost("SendForgotPasswordEmailOtp")]
+        [Authorize(Roles = "Agent,Admin")]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> SendResetPasswordEmailOtp([FromBody] SendEmailOtpRequestModel request)
+        {
+            if (request == null || string.IsNullOrWhiteSpace(request.Email))
+            {
+                _logger.LogWarning("Invalid request received for SendResetPasswordEmailOtp.");
+                return BadRequest("Invalid request data.");
+            }
+
+            try
+            {
+                var email = request.Email.ToLower();
+
+                
+                var user = await _userRepository.GetUserByEmail(email);
+                if (user == null)
+                {
+                    _logger.LogError("User with email: {Email} does not exist", email);
+                    return NotFound("User does not exist.");
+                }
+
+                
+                var otp = GenerateOtp();
+                user.Otp = otp;
+
+                
+                var emailBody = _emailService.GetEmailBody(EmailType.OTP, otp);
+                await _emailService.SendEmail(email, $"Your OTP: {otp}", emailBody);
+
+                
+                await _userRepository.UpdateUserOTP(user);
+
+                
+                var response = new UserResponseModel(user);
+                if (response.Data == null)
+                { 
+                    return BadRequest();
+                }
+                response.Data.Otp = string.Empty;
+                _logger.LogInformation("OTP sent successfully to user with email: {Email}.", email);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while processing the SendResetPasswordEmailOtp request for email: {Email}.", request?.Email);
+                return StatusCode((int)HttpStatusCode.InternalServerError, "An error occurred while processing the request.");
+            }
+        }
+
+
+        [HttpPut("ForgotPassword")]
+        [Authorize(Roles = "Agent,Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> ResetPasswordAsync([FromBody] UserVerifyEmailOtpRequestModel userModel)
+        {
+            if (userModel == null || 
+                string.IsNullOrWhiteSpace(userModel.Email) || 
+                string.IsNullOrWhiteSpace(userModel.Otp))
+            {
+                _logger.LogWarning("Invalid request received for ResetPasswordAsync.");
+                return BadRequest("Invalid request data.");
+            }
+
+            try
+            {
+
+                var email = userModel.Email.ToLower();
+
+                var user = await _userRepository.GetUserByEmail(email);
+                if (user == null)
+                {
+                    _logger.LogError("User with email: {Email} not found.", email);
+                    return NotFound($"User with email {email} does not exist.");
+                }
+
+                if (user.Otp != userModel.Otp)
+                {
+                    _logger.LogWarning("Invalid OTP provided for email: {Email}.", email);
+                    return BadRequest("Invalid OTP.");
+                }
+
+                var updateResult = await _userRepository.UpdateUserPassword(user);
+                if (updateResult.Error)
+                {
+                    _logger.LogError("Failed to update password for email: {Email}. Error: {Error}", email, updateResult.Message);
+                    return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to update password.");
+                }
+
+                _logger.LogInformation("Password reset successfully for email: {Email}.", email);
+                return Ok(updateResult);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while processing ResetPasswordAsync for email: {Email}.", userModel?.Email);
+                return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred. Please try again later.");
+            }
+        }
+
+
         private string GenerateTemporaryPassword()
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var random = new Random();
             return new string(Enumerable.Repeat(chars, 10)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private string GenerateOtp()
+        {
+            return new Random().Next(10000, 100000).ToString();
         }
     }
 }

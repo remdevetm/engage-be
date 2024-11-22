@@ -35,6 +35,7 @@ namespace UserAuthService.Models
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public bool MustChangePassword { get; set; }
+        public string Otp { get; set; }
     }
 
     public enum UserStatus

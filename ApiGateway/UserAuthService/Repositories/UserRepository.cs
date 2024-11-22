@@ -22,6 +22,55 @@ namespace UserAuthService.Repositories
             _loginActivities = context.LoginActivities;
         }
 
+        public async Task<User> GetUserByEmail(string email)
+        {
+
+            try
+            {
+                var filterBuilder = Builders<User>.Filter;
+                var filter = Builders<User>.Filter.And(
+                    filterBuilder.Eq(u => u.Email, email),
+                    filterBuilder.Ne(u => u.Status, UserStatus.Deleted)
+                );
+
+                var user = await _context.Users.Find(filter).FirstOrDefaultAsync();
+
+                return user;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async Task<UserResponseModel> UpdateUserOTP(User user)
+        {
+            try
+            {
+                await _context.Users.ReplaceOneAsync(x => x.Id == user.Id, user);
+                return new UserResponseModel(user);
+            }
+            catch (Exception e)
+            {
+                return new UserResponseModel(null, e.Message, true);
+            }
+        }
+        public async Task<UserResponseModel> UpdateUserPassword(User user)
+        {
+            try
+            {
+                string salt;
+                user.PasswordHash = _hashingService.Hash(user.PasswordHash, out salt);
+                await _context.Users.ReplaceOneAsync(x => x.Id == user.Id, user);
+                return new UserResponseModel(user);
+            }
+            catch (Exception e)
+            {
+                return new UserResponseModel(null, e.Message, true);
+            }
+        }
+
+
 
         public async Task<UserResponseModel> CreateUserAsync(User user)
         {
@@ -54,11 +103,12 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                var filter = Builders<User>.Filter.And(
-                    Builders<User>.Filter.Eq(u => u.Email, request.Email),
-                    Builders<User>.Filter.Ne(u => u.Status, UserStatus.Deleted));
+                //var filter = Builders<User>.Filter.And(
+                //    Builders<User>.Filter.Eq(u => u.Email, request.Email),
+                //    Builders<User>.Filter.Ne(u => u.Status, UserStatus.Deleted));
 
-                var user = await _users.Find(filter).FirstOrDefaultAsync();
+                //var user = await _users.Find(filter).FirstOrDefaultAsync();
+                var user = await GetUserByEmail(request.Email);
 
                 if (user == null || !_hashingService.Verify(request.Password, user.PasswordHash))
                 {
@@ -71,6 +121,20 @@ namespace UserAuthService.Repositories
                 return new UserResponseModel(null, $"Error during login: {ex.Message}", true);
             }
         }
+
+        //public async Task<UserResponseModel> ForgotPassword(ChangePasswordRequestModel request)
+        //{
+        //    try
+        //    {
+        //        return new UserResponseModel(null, "Verify properly", true);
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        return new UserResponseModel(null, $"Error resetting password: {ex.Message}", true);
+        //    }
+        //}
+
 
         public async Task<UserResponseModel> ResetPassword(ChangePasswordRequestModel request)
         {
