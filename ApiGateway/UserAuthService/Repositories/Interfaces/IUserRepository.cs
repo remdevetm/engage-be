@@ -12,11 +12,11 @@ namespace UserAuthService.Repositories.Interfaces
         Task<bool> LogLoginActivity(string userId);
         Task<UserResponseModel> ChangePassword(ChangePasswordRequestModel request);
         Task<UserResponseModel> ResetPassword(ChangePasswordRequestModel request);
-        Task<UserResponseModel> ForgotPassword(ChangePasswordRequestModel request);
         Task<User> GetUserByEmail(string email);
         Task<UserResponseModel> UpdateUserOTP(User user);
         Task<UserResponseModel> UpdateUserPassword(User user);
         Task<User> GetUserById(string id);
         Task<UserResponseModel> UpdateUserStatus(User user);
+        Task<UserResponseModel> UpdateUserProfile(User user);
     }
 }

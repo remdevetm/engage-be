@@ -236,13 +236,8 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                // Build the filter for the user ID
                 var filter = Builders<User>.Filter.Eq(u => u.Id, userId);
-
-                // Build the update to set the last login time
                 var update = Builders<User>.Update.Set(u => u.LastLogin, DateTime.UtcNow);
-
-                // Perform the update
                 var result = await _users.UpdateOneAsync(filter, update);
                 return result.ModifiedCount > 0;
             }
@@ -256,14 +251,13 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                // Create a new login activity
+
                 var activity = new LoginActivity(userId)
                 {
                     ActivityType = LoginActivityType.Login,
                     DateTime = DateTime.UtcNow
                 };
 
-                // Insert the activity document
                 await _loginActivities.InsertOneAsync(activity);
                 return true;
             }
@@ -306,6 +300,32 @@ namespace UserAuthService.Repositories
             catch (Exception ex)
             {
                 return new UserResponseModel(null, $"Error updating user status: {ex.Message}", true);
+            }
+        }
+
+        public async Task<UserResponseModel> UpdateUserProfile(User user)
+        {
+            try
+            {
+                var filter = Builders<User>.Filter.Eq(u => u.Id, user.Id);
+                var update = Builders<User>.Update
+                    .Set(u => u.Name, user.Name)
+                    .Set(u => u.Surname, user.Surname)
+                    .Set(u => u.WorkingHours, user.WorkingHours)
+                    .Set(u => u.Position, user.Position);
+
+                var result = await _users.UpdateOneAsync(filter, update);
+
+                if (result.ModifiedCount == 0)
+                {
+                    return new UserResponseModel(null, "User profile not updated.", true);
+                }
+
+                return new UserResponseModel(user, "User profile updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return new UserResponseModel(null, $"Error updating user profile: {ex.Message}", true);
             }
         }
     }

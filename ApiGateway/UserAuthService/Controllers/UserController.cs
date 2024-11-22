@@ -284,7 +284,6 @@ namespace ApiGateway.UserAuthService.Controllers
         {
             if (request == null || string.IsNullOrWhiteSpace(request.Email))
             {
-                _logger.LogWarning("Invalid request received for SendResetPasswordEmailOtp.");
                 return BadRequest("Invalid request data.");
             }
 
@@ -296,7 +295,6 @@ namespace ApiGateway.UserAuthService.Controllers
                 var user = await _userRepository.GetUserByEmail(email);
                 if (user == null)
                 {
-                    _logger.LogError("User with email: {Email} does not exist", email);
                     return NotFound("User does not exist.");
                 }
 
@@ -318,7 +316,6 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest();
                 }
                 response.Data.Otp = string.Empty;
-                _logger.LogInformation("OTP sent successfully to user with email: {Email}.", email);
                 return Ok(response);
             }
             catch (Exception ex)
@@ -342,7 +339,6 @@ namespace ApiGateway.UserAuthService.Controllers
                 string.IsNullOrWhiteSpace(userModel.Email) || 
                 string.IsNullOrWhiteSpace(userModel.Otp))
             {
-                _logger.LogWarning("Invalid request received for ResetPasswordAsync.");
                 return BadRequest("Invalid request data.");
             }
 
@@ -354,24 +350,21 @@ namespace ApiGateway.UserAuthService.Controllers
                 var user = await _userRepository.GetUserByEmail(email);
                 if (user == null)
                 {
-                    _logger.LogError("User with email: {Email} not found.", email);
                     return NotFound($"User with email {email} does not exist.");
                 }
 
                 if (user.Otp != userModel.Otp)
                 {
-                    _logger.LogWarning("Invalid OTP provided for email: {Email}.", email);
                     return BadRequest("Invalid OTP.");
                 }
 
                 var updateResult = await _userRepository.UpdateUserPassword(user);
                 if (updateResult.Error)
                 {
-                    _logger.LogError("Failed to update password for email: {Email}. Error: {Error}", email, updateResult.Message);
                     return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to update password.");
                 }
 
-                _logger.LogInformation("Password reset successfully for email: {Email}.", email);
+
                 return Ok(updateResult);
             }
             catch (Exception ex)
@@ -379,20 +372,6 @@ namespace ApiGateway.UserAuthService.Controllers
                 _logger.LogError(ex, "An error occurred while processing ResetPasswordAsync for email: {Email}.", userModel?.Email);
                 return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred. Please try again later.");
             }
-        }
-
-
-        private string GenerateTemporaryPassword()
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            var random = new Random();
-            return new string(Enumerable.Repeat(chars, 10)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
-        private string GenerateOtp()
-        {
-            return new Random().Next(10000, 100000).ToString();
         }
 
         [HttpPut("DeleteAgent/{userId}")]
@@ -421,7 +400,7 @@ namespace ApiGateway.UserAuthService.Controllers
                 }
 
                 user.Status = UserStatus.Deleted;
-                
+
                 var updateResult = await _userRepository.UpdateUserStatus(user);
                 if (updateResult.Error)
                 {
@@ -435,5 +414,61 @@ namespace ApiGateway.UserAuthService.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred while deleting the agent.");
             }
         }
+
+        [HttpPut("UpdateProfile/{userId}")]
+        [Authorize(Roles = "Agent,Admin")]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> UpdateProfile(string userId, [FromBody] ProfileUpdateRequestModel request)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                return BadRequest("Invalid user ID.");
+            }
+
+            try
+            {
+                var user = await _userRepository.GetUserById(userId);
+                if (user == null)
+                {
+                    return NotFound("User not found.");
+                }
+
+                // Update user properties
+                user.Name = request.Name;
+                user.Surname = request.Surname;
+                user.WorkingHours = request.WorkingHours;
+                user.Position = request.Position;
+
+                var updateResult = await _userRepository.UpdateUserProfile(user);
+                if (updateResult.Error)
+                {
+                    return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to update profile.");
+                }
+
+                return Ok(updateResult);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while updating profile for user with ID: {Id}", userId);
+                return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred while updating the profile.");
+            }
+        }
+
+        private string GenerateTemporaryPassword()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, 10)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private string GenerateOtp()
+        {
+            return new Random().Next(10000, 100000).ToString();
+        }
+
+
     }
 }
