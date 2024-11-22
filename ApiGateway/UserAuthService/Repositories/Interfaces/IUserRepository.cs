@@ -16,5 +16,7 @@ namespace UserAuthService.Repositories.Interfaces
         Task<User> GetUserByEmail(string email);
         Task<UserResponseModel> UpdateUserOTP(User user);
         Task<UserResponseModel> UpdateUserPassword(User user);
+        Task<User> GetUserById(string id);
+        Task<UserResponseModel> UpdateUserStatus(User user);
     }
 }

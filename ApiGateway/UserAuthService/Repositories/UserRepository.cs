@@ -272,5 +272,41 @@ namespace UserAuthService.Repositories
                 return false;
             }
         }
+
+        public async Task<User> GetUserById(string userId)
+        {
+            try
+            {
+                var filter = Builders<User>.Filter.Eq(u => u.Id, userId);
+                return await _users.Find(filter).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async Task<UserResponseModel> UpdateUserStatus(User user)
+        {
+            try
+            {
+                var filter = Builders<User>.Filter.Eq(u => u.Id, user.Id);
+                var update = Builders<User>.Update
+                    .Set(u => u.Status, user.Status);
+
+                var result = await _users.UpdateOneAsync(filter, update);
+
+                if (result.ModifiedCount == 0)
+                {
+                    return new UserResponseModel(null, "User status not updated.", true);
+                }
+
+                return new UserResponseModel(user, "User status updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return new UserResponseModel(null, $"Error updating user status: {ex.Message}", true);
+            }
+        }
     }
 }

@@ -394,5 +394,46 @@ namespace ApiGateway.UserAuthService.Controllers
         {
             return new Random().Next(10000, 100000).ToString();
         }
+
+        [HttpPut("DeleteAgent/{userId}")]
+        [Authorize(Roles = "Admin")]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> DeleteAgent(string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                return BadRequest("Invalid agent ID.");
+            }
+
+            try
+            {
+                var user = await _userRepository.GetUserById(userId);
+                if (user == null)
+                {
+                    return NotFound("Agent not found.");
+                }
+
+                if (user.UserType != UserType.Agent)
+                {
+                    return BadRequest("Only agents can be deleted through this endpoint.");
+                }
+
+                user.Status = UserStatus.Deleted;
+                
+                var updateResult = await _userRepository.UpdateUserStatus(user);
+                if (updateResult.Error)
+                {
+                    return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to delete agent.");
+                }
+                return Ok(updateResult);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while deleting agent with ID: {Id}", userId);
+                return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred while deleting the agent.");
+            }
+        }
     }
 }
