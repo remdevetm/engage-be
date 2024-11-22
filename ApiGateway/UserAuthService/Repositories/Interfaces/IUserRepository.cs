@@ -9,7 +9,6 @@ namespace UserAuthService.Repositories.Interfaces
         Task<UserResponseModel> CreateUserAsync(User user);
         Task<UserResponseModel> Login(LoginRequestModel request);
         Task<bool> UpdateLastLogin(string userId);
-        Task<bool> LogLoginActivity(string userId);
         Task<UserResponseModel> ChangePassword(ChangePasswordRequestModel request);
         Task<UserResponseModel> ResetPassword(ChangePasswordRequestModel request);
         Task<User> GetUserByEmail(string email);

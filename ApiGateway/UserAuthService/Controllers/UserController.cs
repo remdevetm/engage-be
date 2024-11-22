@@ -1,13 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
-using Org.BouncyCastle.Bcpg;
-using System;
-using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using UserAuthService.Models;
 using UserAuthService.Models.RequestModel;
 using UserAuthService.Models.ResponseModel;
@@ -49,6 +42,11 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPost("CreateAgent")]
         [Authorize(Roles = "Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> CreateAgent([FromBody] UserRequestModel request)
         {
             try
@@ -81,8 +79,7 @@ namespace ApiGateway.UserAuthService.Controllers
                         true));
                 }
 
-                // Send email with temporary password
-                //string emailBody = _emailService.GetEmailBody(EmailType.LoginDetail, emailContent);
+
                 await _emailService.SendEmail(user.Email, "Welcome to the System - Login Credentials",
                     _emailService.GetEmailBody(EmailType.LoginDetail,
                     $"{user.Name},{user.Email},{tempPassword},{user.UserType.ToString()}"));
@@ -99,16 +96,22 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPost("CreateAdmin")]
         [Authorize(Roles = "Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> CreateAdmin([FromBody] UserRequestModel request)
         {
             try
             {
-                // Validate the request model
+                
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
-                // Create new user with Admin role and Status set to Verified
+                
+
                 var user = new User(request)
                 {
                     PasswordHash = request.Password,
@@ -117,7 +120,7 @@ namespace ApiGateway.UserAuthService.Controllers
                     MustChangePassword = false
                 };
 
-                // Save to database
+                
                 var result = await _userRepository.CreateUserAsync(user);
                 if (result.Error)
                 {
@@ -144,6 +147,11 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPost("LoginAgent")]
         [Authorize(Roles = "Agent")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> LoginAgent([FromBody] LoginRequestModel request)
         {
             try
@@ -153,7 +161,6 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest(ModelState);
                 }
 
-                // Attempt to login the user
                 var loginResult = await _userRepository.Login(request);
 
                 if (loginResult.Error || loginResult.Data == null)
@@ -168,7 +175,6 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest(new UserResponseModel(null, "Invalid user type.", true));
                 }
 
-                // Check if the user must change password
                 if (user.Status == UserStatus.New || user.MustChangePassword)
                 {
                     return BadRequest(new UserResponseModel(null, "You must change your password before proceeding.", true));
@@ -176,7 +182,7 @@ namespace ApiGateway.UserAuthService.Controllers
 
                 // Update last login and log activity
                 await _userRepository.UpdateLastLogin(user.Id);
-                await _userRepository.LogLoginActivity(user.Id);
+                await _loginActivityRepository.LogLoginActivity(user.Id);
 
                 return loginResult.Data != null ? Ok(loginResult) : BadRequest(loginResult);
             }
@@ -190,6 +196,11 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPost("LoginAdmin")]
         [Authorize(Roles = "Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> LoginAdmin([FromBody] LoginRequestModel request)
         {
             if (!ModelState.IsValid)
@@ -199,7 +210,6 @@ namespace ApiGateway.UserAuthService.Controllers
 
             try
             {
-                // Attempt to login the user
                 var loginResult = await _userRepository.Login(request);
 
                 if (loginResult.Error || loginResult.Data == null)
@@ -213,7 +223,6 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest(new UserResponseModel(null, "Invalid user type.", true));
                 }
 
-                // Check if the user must change password
                 if (user.Status == UserStatus.New || user.MustChangePassword)
                 {
                     return BadRequest(new UserResponseModel(null, "You must change your password before proceeding.", true));
@@ -231,6 +240,11 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPost("AgentChangePassword")]
         [Authorize(Roles = "Agent")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> ChangePassword([FromBody] ChangePasswordRequestModel request)
         { 
             try
@@ -254,6 +268,11 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPut("ResetPassword")]
         [Authorize(Roles = "Agent,Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> ResetPassword([FromBody] ChangePasswordRequestModel request)
         {
             try
@@ -262,8 +281,6 @@ namespace ApiGateway.UserAuthService.Controllers
                 {
                     return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
                 }
-
-                // Change password
                 var changePasswordResult = await _userRepository.ResetPassword(request);
 
                 return changePasswordResult.Data != null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
@@ -277,8 +294,10 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPost("SendForgotPasswordEmailOtp")]
         [Authorize(Roles = "Agent,Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> SendResetPasswordEmailOtp([FromBody] SendEmailOtpRequestModel request)
         {
@@ -376,8 +395,10 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPut("DeleteAgent/{userId}")]
         [Authorize(Roles = "Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteAgent(string userId)
         {
@@ -417,8 +438,10 @@ namespace ApiGateway.UserAuthService.Controllers
 
         [HttpPut("UpdateProfile/{userId}")]
         [Authorize(Roles = "Agent,Admin")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> UpdateProfile(string userId, [FromBody] ProfileUpdateRequestModel request)
         {
@@ -453,6 +476,47 @@ namespace ApiGateway.UserAuthService.Controllers
             {
                 _logger.LogError(ex, "An error occurred while updating profile for user with ID: {Id}", userId);
                 return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred while updating the profile.");
+            }
+        }
+
+        [HttpPost("LogoutAgent/{userId}")]
+        [Authorize(Roles = "Agent")]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> LogoutAgent(string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                return BadRequest("Invalid user ID.");
+            }
+
+            try
+            {
+                var user = await _userRepository.GetUserById(userId);
+                if (user == null)
+                {
+                    return NotFound("User not found.");
+                }
+
+                if (user.UserType != UserType.Agent)
+                {
+                    return BadRequest("Only agents can logout through this endpoint.");
+                }
+
+                var logResult = await _loginActivityRepository.LogLogoutActivity(userId);
+                if (!logResult)
+                {
+                    return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to log logout activity");
+                }
+                return Ok("Agent logged out successfully");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred during agent logout for user ID: {UserId}", userId);
+                return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred during logout");
             }
         }
 

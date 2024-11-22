@@ -24,18 +24,20 @@ namespace UserAuthService.Repositories
 
         public async Task<User> GetUserByEmail(string email)
         {
-
             try
             {
+                if (string.IsNullOrWhiteSpace(email))
+                {
+                    return null;
+                }
+
                 var filterBuilder = Builders<User>.Filter;
-                var filter = Builders<User>.Filter.And(
-                    filterBuilder.Eq(u => u.Email, email),
+                var filter = filterBuilder.And(
+                    filterBuilder.Eq(u => u.Email, email.ToLower()),
                     filterBuilder.Ne(u => u.Status, UserStatus.Deleted)
                 );
 
-                var user = await _context.Users.Find(filter).FirstOrDefaultAsync();
-
-                return user;
+                return await _users.Find(filter).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -103,11 +105,7 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                //var filter = Builders<User>.Filter.And(
-                //    Builders<User>.Filter.Eq(u => u.Email, request.Email),
-                //    Builders<User>.Filter.Ne(u => u.Status, UserStatus.Deleted));
 
-                //var user = await _users.Find(filter).FirstOrDefaultAsync();
                 var user = await GetUserByEmail(request.Email);
 
                 if (user == null || !_hashingService.Verify(request.Password, user.PasswordHash))
@@ -122,18 +120,6 @@ namespace UserAuthService.Repositories
             }
         }
 
-        //public async Task<UserResponseModel> ForgotPassword(ChangePasswordRequestModel request)
-        //{
-        //    try
-        //    {
-        //        return new UserResponseModel(null, "Verify properly", true);
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        return new UserResponseModel(null, $"Error resetting password: {ex.Message}", true);
-        //    }
-        //}
 
 
         public async Task<UserResponseModel> ResetPassword(ChangePasswordRequestModel request)
@@ -240,26 +226,6 @@ namespace UserAuthService.Repositories
                 var update = Builders<User>.Update.Set(u => u.LastLogin, DateTime.UtcNow);
                 var result = await _users.UpdateOneAsync(filter, update);
                 return result.ModifiedCount > 0;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public async Task<bool> LogLoginActivity(string userId)
-        {
-            try
-            {
-
-                var activity = new LoginActivity(userId)
-                {
-                    ActivityType = LoginActivityType.Login,
-                    DateTime = DateTime.UtcNow
-                };
-
-                await _loginActivities.InsertOneAsync(activity);
-                return true;
             }
             catch (Exception)
             {

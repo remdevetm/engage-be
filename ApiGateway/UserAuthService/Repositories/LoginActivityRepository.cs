@@ -23,7 +23,7 @@ namespace UserAuthService.Repositories
                 var activity = new LoginActivity(userId)
                 {
                     //UserId = userId,
-                    ActivityType = type,
+                    ActivityType = LoginActivityType.Login,
                     DateTime = DateTime.UtcNow
                 };
                 await _loginActivities.InsertOneAsync(activity);
@@ -37,7 +37,21 @@ namespace UserAuthService.Repositories
 
         public async Task<bool> LogLogoutActivity(string userId)
         {
-            return await LogLoginActivity(userId, LoginActivityType.Logout);
+            try
+            {
+                var activity = new LoginActivity(userId)
+                {
+                    //UserId = userId,
+                    ActivityType = LoginActivityType.Logout,
+                    DateTime = DateTime.UtcNow
+                };
+                await _loginActivities.InsertOneAsync(activity);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
