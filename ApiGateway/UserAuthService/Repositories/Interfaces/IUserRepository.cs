@@ -13,7 +13,7 @@ namespace UserAuthService.Repositories.Interfaces
         Task<UserResponseModel> ResetPassword(ChangePasswordRequestModel request);
         Task<User> GetUserByEmail(string email);
         Task<UserResponseModel> UpdateUserOTP(User user);
-        Task<UserResponseModel> UpdateUserPassword(User user);
+        Task<UserResponseModel> UpdateUserPassword(string newPassword, User user);
         Task<User> GetUserById(string id);
         Task<UserResponseModel> UpdateUserStatus(User user);
         Task<UserResponseModel> UpdateUserProfile(User user);

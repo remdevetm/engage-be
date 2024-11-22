@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 using System.Net;
 using UserAuthService.Models;
 using UserAuthService.Models.RequestModel;
@@ -84,6 +85,7 @@ namespace ApiGateway.UserAuthService.Controllers
                     _emailService.GetEmailBody(EmailType.LoginDetail,
                     $"{user.Name},{user.Email},{tempPassword},{user.UserType.ToString()}"));
 
+                result.Message = "Agent created successfully";
                 return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
@@ -136,6 +138,7 @@ namespace ApiGateway.UserAuthService.Controllers
                     _emailService.GetEmailBody(EmailType.LoginDetail,
                     $"{user.Name},{user.Email},{user.PasswordHash},{user.UserType.ToString()}"));
 
+                result.Message = "Admin created successfully";
                 return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
@@ -183,7 +186,7 @@ namespace ApiGateway.UserAuthService.Controllers
                 
                 await _userRepository.UpdateLastLogin(user.Id);
                 await _loginActivityRepository.LogLoginActivity(user.Id);
-
+                loginResult.Message = "Agent logged in successfully";
                 return loginResult.Data != null ? Ok(loginResult) : BadRequest(loginResult);
             }
             catch (Exception ex)
@@ -227,7 +230,7 @@ namespace ApiGateway.UserAuthService.Controllers
                 {
                     return BadRequest(new UserResponseModel(null, "You must change your password before proceeding.", true));
                 }
-
+                loginResult.Message = "Admin logged in successfully";
                 return loginResult.Data != null ? Ok(loginResult) : BadRequest(loginResult);
 
             }
@@ -256,8 +259,8 @@ namespace ApiGateway.UserAuthService.Controllers
 
                 
                 var changePasswordResult = await _userRepository.ChangePassword(request);
-
-                return changePasswordResult.Data != null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
+                changePasswordResult.Message = "Password updated successfully";
+                return changePasswordResult.Data == null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
             }
             catch (Exception ex)
             {
@@ -282,6 +285,7 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
                 }
                 var changePasswordResult = await _userRepository.ResetPassword(request);
+                changePasswordResult.Message = "Reset password successful";
 
                 return changePasswordResult.Data != null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
             }
@@ -335,7 +339,8 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest();
                 }
                 response.Data.Otp = string.Empty;
-                return Ok(response);
+                response.Message = "Sent email Otp to user successfully";
+                return response.Data != null ? Ok(response) : BadRequest(response);
             }
             catch (Exception ex)
             {
@@ -377,14 +382,15 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest("Invalid OTP.");
                 }
 
-                var updateResult = await _userRepository.UpdateUserPassword(user);
+                var updateResult = await _userRepository.UpdateUserPassword(userModel.Password, user);
                 if (updateResult.Error)
                 {
                     return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to update password.");
                 }
 
-
-                return Ok(updateResult);
+                updateResult.Message = "Password updated successfully";
+                return updateResult.Data != null ? Ok(updateResult) : BadRequest(updateResult);
+                
             }
             catch (Exception ex)
             {
@@ -427,7 +433,8 @@ namespace ApiGateway.UserAuthService.Controllers
                 {
                     return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to delete agent.");
                 }
-                return Ok(updateResult);
+                updateResult.Message = "Agent deleted successfully";
+                return updateResult.Data != null ? Ok(updateResult) : BadRequest(updateResult);
             }
             catch (Exception ex)
             {
@@ -469,7 +476,8 @@ namespace ApiGateway.UserAuthService.Controllers
                     return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to update profile.");
                 }
 
-                return Ok(updateResult);
+                updateResult.Message = "Profile updated successfully";
+                return updateResult.Data != null ? Ok(updateResult) : BadRequest(updateResult);
             }
             catch (Exception ex)
             {
@@ -510,7 +518,8 @@ namespace ApiGateway.UserAuthService.Controllers
                 {
                     return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to log logout activity");
                 }
-                return Ok("Agent logged out successfully");
+                var result = new UserResponseModel(user, "Agent logged out successfully");
+                return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
             {
@@ -546,8 +555,8 @@ namespace ApiGateway.UserAuthService.Controllers
                     return BadRequest("Only admins can logout through this endpoint.");
                 }
 
-                _logger.LogInformation("Admin logged out successfully. User ID: {UserId}", userId);
-                return Ok("Admin logged out successfully");
+                var result = new UserResponseModel(user, "Admin logged out successfully");
+                return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
             {

@@ -49,21 +49,28 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                await _context.Users.ReplaceOneAsync(x => x.Id == user.Id, user);
-                return new UserResponseModel(user);
+                var filter = Builders<User>.Filter.Eq(u => u.Id, user.Id);
+                var result = await _users.ReplaceOneAsync(filter, user);
+
+                if (result.ModifiedCount == 0)
+                {
+                    return new UserResponseModel(null, "User OTP not updated.", true);
+                }
+
+                return new UserResponseModel(user, "User OTP updated successfully");
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return new UserResponseModel(null, e.Message, true);
+                return new UserResponseModel(null, ex.Message, true);
             }
         }
-        public async Task<UserResponseModel> UpdateUserPassword(User user)
+        public async Task<UserResponseModel> UpdateUserPassword(string newPassword, User user)
         {
             try
             {
                 string salt;
-                user.PasswordHash = _hashingService.Hash(user.PasswordHash, out salt);
-                await _context.Users.ReplaceOneAsync(x => x.Id == user.Id, user);
+                user.PasswordHash = _hashingService.Hash(newPassword, out salt);
+                await _users.ReplaceOneAsync(x => x.Id == user.Id, user);
                 return new UserResponseModel(user);
             }
             catch (Exception e)
