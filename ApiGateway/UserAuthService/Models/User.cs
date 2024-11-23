@@ -1,12 +1,26 @@
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using UserAuthService.Models.RequestModel;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace UserAuthService.Models
 {
     public class User
     {
         public User(){}
+        public User(AgentRegisterRequestModel request)
+        {
+            Name = request.Name;
+            Surname = request.Surname;
+            Email = request.Email.ToLower();
+            WorkingHours = request.WorkingHours;
+            Position = request.Position;
+
+            Status = UserStatus.New;
+            UserType = UserType.Agent;
+            LastLogin = DateTime.UtcNow;
+            MustChangePassword = true;
+        }
 
         public User(UserRequestModel request)
         {
@@ -15,6 +29,7 @@ namespace UserAuthService.Models
             Email = request.Email.ToLower();
             WorkingHours = request.WorkingHours;
             Position = request.Position;
+            PasswordHash = request.Password;
 
             Status = UserStatus.New;
             UserType = UserType.Agent;

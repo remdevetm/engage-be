@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
 using System.Net;
 using UserAuthService.Models;
 using UserAuthService.Models.RequestModel;
@@ -50,13 +49,13 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> CreateAgent([FromBody] UserRequestModel request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
+            }
+
             try
             {
-                // Validate the request model
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
 
                 // Generate temporary password
                 string tempPassword = GenerateTemporaryPassword();
@@ -105,14 +104,13 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> CreateAdmin([FromBody] UserRequestModel request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
+            }
+
             try
             {
-                
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-                
 
                 var user = new User(request)
                 {
@@ -157,12 +155,13 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> LoginAgent([FromBody] LoginRequestModel request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
 
                 var loginResult = await _userRepository.Login(request);
 
@@ -208,7 +207,7 @@ namespace ApiGateway.UserAuthService.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
             }
 
             try
@@ -249,15 +248,14 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> ChangePassword([FromBody] ChangePasswordRequestModel request)
-        { 
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
-                }
-
-                
                 var changePasswordResult = await _userRepository.ChangePassword(request);
                 changePasswordResult.Message = "Password updated successfully";
                 return changePasswordResult.Data == null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
@@ -278,12 +276,13 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> ResetPassword([FromBody] ChangePasswordRequestModel request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
-                }
                 var changePasswordResult = await _userRepository.ResetPassword(request);
                 changePasswordResult.Message = "Reset password successful";
 
@@ -303,11 +302,11 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> SendResetPasswordEmailOtp([FromBody] SendEmailOtpRequestModel request)
+        public async Task<ActionResult<UserResponseModel>> SendResetPasswordEmailOtp([FromBody] SendEmailOtpRequestModel request)
         {
-            if (request == null || string.IsNullOrWhiteSpace(request.Email))
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid request data.");
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
             }
 
             try
@@ -357,13 +356,11 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> ResetPasswordAsync([FromBody] UserVerifyEmailOtpRequestModel userModel)
+        public async Task<ActionResult<UserResponseModel>> ResetPasswordAsync([FromBody] UserVerifyEmailOtpRequestModel userModel)
         {
-            if (userModel == null || 
-                string.IsNullOrWhiteSpace(userModel.Email) || 
-                string.IsNullOrWhiteSpace(userModel.Otp))
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid request data.");
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
             }
 
             try
@@ -406,11 +403,11 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> DeleteAgent(string userId)
+        public async Task<ActionResult<UserResponseModel>> DeleteAgent(string userId)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid agent ID.");
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
             }
 
             try
@@ -450,11 +447,11 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> UpdateProfile(string userId, [FromBody] ProfileUpdateRequestModel request)
+        public async Task<ActionResult<UserResponseModel>> UpdateProfile(string userId, [FromBody] ProfileUpdateRequestModel request)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid user ID.");
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
             }
 
             try
@@ -493,11 +490,11 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> LogoutAgent(string userId)
+        public async Task<ActionResult<UserResponseModel>> LogoutAgent(string userId)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid user ID.");
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
             }
 
             try
@@ -514,10 +511,6 @@ namespace ApiGateway.UserAuthService.Controllers
                 }
 
                 var logResult = await _loginActivityRepository.LogLogoutActivity(userId);
-                if (!logResult)
-                {
-                    return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to log logout activity");
-                }
                 var result = new UserResponseModel(user, "Agent logged out successfully");
                 return result.Data != null ? Ok(result) : BadRequest(result);
             }
@@ -535,11 +528,11 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> LogoutAdmin(string userId)
+        public async Task<ActionResult<UserResponseModel>> LogoutAdmin(string userId)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid user ID.");
+                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
             }
 
             try
