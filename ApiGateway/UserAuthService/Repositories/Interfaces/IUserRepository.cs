@@ -1,4 +1,4 @@
-﻿using UserAuthService.Models;
+﻿using UserAuthService.Models.Model;
 using UserAuthService.Models.RequestModel;
 using UserAuthService.Models.ResponseModel;
 
@@ -9,7 +9,7 @@ namespace UserAuthService.Repositories.Interfaces
         Task<UserResponseModel> CreateUserAsync(User user);
         Task<UserResponseModel> Login(LoginRequestModel request);
         Task<bool> UpdateLastLogin(string userId);
-        Task<UserResponseModel> ChangePassword(ChangePasswordRequestModel request);
+        Task<UserResponseModel> AgentChangePassword(ChangePasswordRequestModel request);
         Task<UserResponseModel> ResetPassword(ChangePasswordRequestModel request);
         Task<User> GetUserByEmail(string email);
         Task<UserResponseModel> UpdateUserOTP(User user);

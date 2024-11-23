@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 using UserAuthService.Data.Interfaces;
-using UserAuthService.Models;
+using UserAuthService.Models.Model;
 using UserAuthService.Models.RequestModel;
 using UserAuthService.Models.ResponseModel;
 using UserAuthService.Repositories.Interfaces;
@@ -26,10 +26,6 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(email))
-                {
-                    return null;
-                }
 
                 var filterBuilder = Builders<User>.Filter;
                 var filter = filterBuilder.And(
@@ -70,8 +66,10 @@ namespace UserAuthService.Repositories
             {
                 string salt;
                 user.PasswordHash = _hashingService.Hash(newPassword, out salt);
+
                 await _users.ReplaceOneAsync(x => x.Id == user.Id, user);
-                return new UserResponseModel(user);
+
+                return new UserResponseModel(user, "Password updated succefully");
             }
             catch (Exception e)
             {
@@ -93,11 +91,9 @@ namespace UserAuthService.Repositories
                     return new UserResponseModel(null, "User with this email already exists", true);
                 }
 
-                
                 string salt;
                 user.PasswordHash = _hashingService.Hash(user.PasswordHash, out salt);
 
-                
                 await _users.InsertOneAsync(user);
                 return new UserResponseModel(user, "User created successfully");
             }
@@ -114,8 +110,11 @@ namespace UserAuthService.Repositories
             {
 
                 var user = await GetUserByEmail(request.Email);
-
-                if (user == null || !_hashingService.Verify(request.Password, user.PasswordHash))
+                if (user == null)
+                {
+                    return new UserResponseModel(null, $"User with email {request.Email} not found.", true);
+                }
+                if (!_hashingService.Verify(request.Password, user.PasswordHash))
                 {
                     return new UserResponseModel(null, "Enter correct correctCredentials", true);
                 }
@@ -139,19 +138,19 @@ namespace UserAuthService.Repositories
                         Builders<User>.Filter.Eq(u => u.Status, UserStatus.Verified)
                     )).FirstOrDefaultAsync();
 
+                if (user == null) return new UserResponseModel(null, "User with not found.", true);
 
-                if (user == null || !_hashingService.Verify(request.CurrentPassword, user.PasswordHash))
+                if (!_hashingService.Verify(request.CurrentPassword, user.PasswordHash))
                 {
                     return new UserResponseModel(null, "Invalid current password.", true);
                 }
-
 
                 string salt;
                 string newPasswordHash = _hashingService.Hash(request.NewPassword, out salt);
                 
                 if (_hashingService.Verify(newPasswordHash, user.PasswordHash))
                 {
-                    return new UserResponseModel(null, "Cannot use same password.", true);
+                    return new UserResponseModel(null, "New password same as old password.", true);
                 }
 
                 var filter = Builders<User>.Filter.Eq(u => u.Id, request.UserId);
@@ -170,12 +169,11 @@ namespace UserAuthService.Repositories
             }
             catch (Exception ex)
             {
-
                 return new UserResponseModel(null, $"Error resetting password: {ex.Message}", true);
             }
         }
 
-        public async Task<UserResponseModel> ChangePassword(ChangePasswordRequestModel request)
+        public async Task<UserResponseModel> AgentChangePassword(ChangePasswordRequestModel request)
         {
             try
             {
@@ -184,19 +182,19 @@ namespace UserAuthService.Repositories
                     Builders<User>.Filter.And(
                         Builders<User>.Filter.Eq(u => u.Id, request.UserId),
                         Builders<User>.Filter.Eq(u => u.Status, UserStatus.New),
-                        Builders<User>.Filter.Ne(u => u.Status, UserStatus.Deleted)
+                        Builders<User>.Filter.Ne(u => u.Status, UserStatus.Deleted),
+                        Builders<User>.Filter.Eq(u => u.UserType, UserType.Agent)
                     )).FirstOrDefaultAsync();
 
-                if (user == null || !_hashingService.Verify(request.CurrentPassword, user.PasswordHash))
+                if (user == null)
+                {
+                    return new UserResponseModel(null, "User not found.", true);
+                }
+
+                if (!_hashingService.Verify(request.CurrentPassword, user.PasswordHash))
                 {
                     return new UserResponseModel(null, "Invalid current password.", true);
                 }
-
-                if (user.UserType != UserType.Agent)
-                {
-                    return new UserResponseModel(null, "Invalid user type.", true);
-                }
-
 
                 string salt;
                 string newPasswordHash = _hashingService.Hash(request.NewPassword, out salt);
@@ -213,7 +211,7 @@ namespace UserAuthService.Repositories
 
                 if (result.ModifiedCount == 0)
                 {
-                    return new UserResponseModel(null, "Password not updated.", true);
+                    return new UserResponseModel(null, "There was a problem updating password.", true);
                 }
 
                 return new UserResponseModel(null, "Password updated successfully");

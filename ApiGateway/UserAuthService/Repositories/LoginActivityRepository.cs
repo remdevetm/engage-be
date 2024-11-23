@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using UserAuthService.Data.Interfaces;
-using UserAuthService.Models;
+using UserAuthService.Models.Model;
 using UserAuthService.Repositories.Interfaces;
 
 namespace UserAuthService.Repositories

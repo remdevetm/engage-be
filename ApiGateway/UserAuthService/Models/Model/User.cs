@@ -1,13 +1,13 @@
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using UserAuthService.Models.RequestModel;
-using Org.BouncyCastle.Asn1.Ocsp;
 
-namespace UserAuthService.Models
+
+namespace UserAuthService.Models.Model
 {
     public class User
     {
-        public User(){}
+        public User() { }
         public User(AgentRegisterRequestModel request)
         {
             Name = request.Name;

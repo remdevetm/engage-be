@@ -1,4 +1,4 @@
-﻿using UserAuthService.Models;
+﻿using UserAuthService.Models.Model;
 
 namespace UserAuthService.Models.ResponseModel
 {

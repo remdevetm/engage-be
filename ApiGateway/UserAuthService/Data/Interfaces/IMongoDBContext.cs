@@ -1,5 +1,5 @@
 using MongoDB.Driver;
-using UserAuthService.Models;
+using UserAuthService.Models.Model;
 namespace UserAuthService.Data.Interfaces
 {
     public interface IMongoDBContext

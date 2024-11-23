@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using UserAuthService.Models;
+using UserAuthService.Models.Model;
 using UserAuthService.Models.RequestModel;
 using UserAuthService.Models.ResponseModel;
 using UserAuthService.Repositories.Interfaces;
@@ -47,7 +47,7 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<UserResponseModel>> CreateAgent([FromBody] UserRequestModel request)
+        public async Task<ActionResult<UserResponseModel>> CreateAgent([FromBody] AgentRegisterRequestModel request)
         {
             if (!ModelState.IsValid)
             {
@@ -72,20 +72,14 @@ namespace ApiGateway.UserAuthService.Controllers
 
                 // Save to database
                 var result = await _userRepository.CreateUserAsync(user);
-                if (result.Error)
-                {
-                    return BadRequest(new UserResponseModel(null,
-                        $"Email already exists: {user.Email}",
-                        true));
-                }
+                if (result.Error) return BadRequest(result);
 
 
                 await _emailService.SendEmail(user.Email, "Welcome to the System - Login Credentials",
                     _emailService.GetEmailBody(EmailType.LoginDetail,
                     $"{user.Name},{user.Email},{tempPassword},{user.UserType.ToString()}"));
 
-                result.Message = "Agent created successfully";
-                return result.Data != null ? Ok(result) : BadRequest(result);
+                return result.Data != null ? Ok(result.Message = "Agent created successfully") : BadRequest(result);
             }
             catch (Exception ex)
             {
@@ -122,22 +116,14 @@ namespace ApiGateway.UserAuthService.Controllers
 
                 
                 var result = await _userRepository.CreateUserAsync(user);
-                if (result.Error)
-                {
-                    return BadRequest(new UserResponseModel
-                    {
-                        Data = null,
-                        Message = $"Email already exists: {user.Email}",
-                        Error = true
-                    });
-                }
+                if (result.Error) return BadRequest(result);
+
 
                 await _emailService.SendEmail(user.Email, "Welcome to the System - Login Credentials",
                     _emailService.GetEmailBody(EmailType.LoginDetail,
                     $"{user.Name},{user.Email},{user.PasswordHash},{user.UserType.ToString()}"));
 
-                result.Message = "Admin created successfully";
-                return result.Data != null ? Ok(result) : BadRequest(result);
+                return result.Data != null ? Ok(result.Message = "Admin created successfully") : BadRequest(result);
             }
             catch (Exception ex)
             {
@@ -146,8 +132,8 @@ namespace ApiGateway.UserAuthService.Controllers
             }
         }
 
-        [HttpPost("LoginAgent")]
-        [Authorize(Roles = "Agent")]
+        [HttpPost("Login")]
+        [Authorize(Roles = "Agent,Admin")]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -165,27 +151,19 @@ namespace ApiGateway.UserAuthService.Controllers
 
                 var loginResult = await _userRepository.Login(request);
 
-                if (loginResult.Error || loginResult.Data == null)
-                {
-                    return BadRequest(loginResult);
-                }
+                if (loginResult.Error || loginResult.Data == null) return BadRequest(loginResult);
 
                 var user = loginResult.Data;
-
-                if (user.UserType != UserType.Agent)
-                {
-                    return BadRequest(new UserResponseModel(null, "Invalid user type.", true));
-                }
 
                 if (user.Status == UserStatus.New || user.MustChangePassword)
                 {
                     return BadRequest(new UserResponseModel(null, "You must change your password before proceeding.", true));
                 }
 
-                
                 await _userRepository.UpdateLastLogin(user.Id);
-                await _loginActivityRepository.LogLoginActivity(user.Id);
-                loginResult.Message = "Agent logged in successfully";
+
+                if (user.UserType == UserType.Agent) await _loginActivityRepository.LogLoginActivity(user.Id);
+
                 return loginResult.Data != null ? Ok(loginResult) : BadRequest(loginResult);
             }
             catch (Exception ex)
@@ -195,50 +173,6 @@ namespace ApiGateway.UserAuthService.Controllers
             }
         }
 
-
-        [HttpPost("LoginAdmin")]
-        [Authorize(Roles = "Admin")]
-        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
-        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<UserResponseModel>> LoginAdmin([FromBody] LoginRequestModel request)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
-            }
-
-            try
-            {
-                var loginResult = await _userRepository.Login(request);
-
-                if (loginResult.Error || loginResult.Data == null)
-                {
-                    return BadRequest(loginResult);
-                }
-                var user = loginResult.Data;
-
-                if (user.UserType != UserType.Admin)
-                {
-                    return BadRequest(new UserResponseModel(null, "Invalid user type.", true));
-                }
-
-                if (user.Status == UserStatus.New || user.MustChangePassword)
-                {
-                    return BadRequest(new UserResponseModel(null, "You must change your password before proceeding.", true));
-                }
-                loginResult.Message = "Admin logged in successfully";
-                return loginResult.Data != null ? Ok(loginResult) : BadRequest(loginResult);
-
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error during Admin login: {ex.Message}");
-                return BadRequest(new UserResponseModel(null, $"Error during login: {ex.Message}", true));
-            }
-        }
 
         [HttpPost("AgentChangePassword")]
         [Authorize(Roles = "Agent")]
@@ -256,9 +190,8 @@ namespace ApiGateway.UserAuthService.Controllers
 
             try
             {
-                var changePasswordResult = await _userRepository.ChangePassword(request);
-                changePasswordResult.Message = "Password updated successfully";
-                return changePasswordResult.Data == null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
+                var changePasswordResult = await _userRepository.AgentChangePassword(request);
+                return changePasswordResult.Error ? BadRequest(changePasswordResult) : Ok(changePasswordResult);
             }
             catch (Exception ex)
             {
@@ -284,9 +217,7 @@ namespace ApiGateway.UserAuthService.Controllers
             try
             {
                 var changePasswordResult = await _userRepository.ResetPassword(request);
-                changePasswordResult.Message = "Reset password successful";
-
-                return changePasswordResult.Data != null ? Ok(changePasswordResult) : BadRequest(changePasswordResult);
+                return changePasswordResult.Error ? BadRequest(changePasswordResult) : Ok(changePasswordResult);
             }
             catch (Exception ex)
             {
@@ -313,14 +244,10 @@ namespace ApiGateway.UserAuthService.Controllers
             {
                 var email = request.Email.ToLower();
 
-                
                 var user = await _userRepository.GetUserByEmail(email);
-                if (user == null)
-                {
-                    return NotFound("User does not exist.");
-                }
 
-                
+                if (user == null) return NotFound(new UserResponseModel(null, "user not found", true));
+
                 var otp = GenerateOtp();
                 user.Otp = otp;
 
@@ -328,18 +255,10 @@ namespace ApiGateway.UserAuthService.Controllers
                 var emailBody = _emailService.GetEmailBody(EmailType.OTP, otp);
                 await _emailService.SendEmail(email, $"Your OTP: {otp}", emailBody);
 
-                
-                await _userRepository.UpdateUserOTP(user);
+                var result = await _userRepository.UpdateUserOTP(user);
 
-                
-                var response = new UserResponseModel(user);
-                if (response.Data == null)
-                { 
-                    return BadRequest();
-                }
-                response.Data.Otp = string.Empty;
-                response.Message = "Sent email Otp to user successfully";
-                return response.Data != null ? Ok(response) : BadRequest(response);
+                if (result.Data != null) result.Data.Otp = string.Empty;
+                return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
             {
@@ -367,25 +286,15 @@ namespace ApiGateway.UserAuthService.Controllers
             {
 
                 var email = userModel.Email.ToLower();
-
                 var user = await _userRepository.GetUserByEmail(email);
-                if (user == null)
-                {
-                    return NotFound($"User with email {email} does not exist.");
-                }
 
-                if (user.Otp != userModel.Otp)
-                {
-                    return BadRequest("Invalid OTP.");
-                }
+                if (user == null) return NotFound(new UserResponseModel(null, $"User with email {email} does not exist.", true));
+
+                if (user.Otp != userModel.Otp) return BadRequest(new UserResponseModel(null, "Invalid Otp", true));
 
                 var updateResult = await _userRepository.UpdateUserPassword(userModel.Password, user);
-                if (updateResult.Error)
-                {
-                    return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to update password.");
-                }
+                //if (updateResult.Data != null) updateResult.Data.Otp = string.Empty;
 
-                updateResult.Message = "Password updated successfully";
                 return updateResult.Data != null ? Ok(updateResult) : BadRequest(updateResult);
                 
             }
@@ -396,8 +305,8 @@ namespace ApiGateway.UserAuthService.Controllers
             }
         }
 
-        [HttpPut("DeleteAgent/{userId}")]
-        [Authorize(Roles = "Admin")]
+        [HttpPut("Delete/{userId}")]
+        [Authorize(Roles = "Agent,Admin")]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -405,33 +314,21 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> DeleteAgent(string userId)
         {
-            if (!ModelState.IsValid)
+            if (string.IsNullOrEmpty(userId))
             {
-                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
+                return BadRequest(new UserResponseModel(null, "Null or Empty user id", true));
             }
 
             try
             {
                 var user = await _userRepository.GetUserById(userId);
-                if (user == null)
-                {
-                    return NotFound("Agent not found.");
-                }
-
-                if (user.UserType != UserType.Agent)
-                {
-                    return BadRequest("Only agents can be deleted through this endpoint.");
-                }
+                if (user == null) return NotFound(new UserResponseModel(null, $"User of id {userId} not found", true));
 
                 user.Status = UserStatus.Deleted;
 
                 var updateResult = await _userRepository.UpdateUserStatus(user);
-                if (updateResult.Error)
-                {
-                    return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to delete agent.");
-                }
-                updateResult.Message = "Agent deleted successfully";
-                return updateResult.Data != null ? Ok(updateResult) : BadRequest(updateResult);
+
+                return updateResult.Data != null ? Ok(updateResult.Message = "User deleted successfully") : BadRequest(updateResult);
             }
             catch (Exception ex)
             {
@@ -457,10 +354,7 @@ namespace ApiGateway.UserAuthService.Controllers
             try
             {
                 var user = await _userRepository.GetUserById(userId);
-                if (user == null)
-                {
-                    return NotFound("User not found.");
-                }
+                if (user == null) return NotFound(new UserResponseModel(null, $"User of id {userId} not found", true));
 
                 user.Name = request.Name;
                 user.Surname = request.Surname;
@@ -468,12 +362,7 @@ namespace ApiGateway.UserAuthService.Controllers
                 user.Position = request.Position;
 
                 var updateResult = await _userRepository.UpdateUserProfile(user);
-                if (updateResult.Error)
-                {
-                    return StatusCode((int)HttpStatusCode.InternalServerError, "Failed to update profile.");
-                }
 
-                updateResult.Message = "Profile updated successfully";
                 return updateResult.Data != null ? Ok(updateResult) : BadRequest(updateResult);
             }
             catch (Exception ex)
@@ -483,8 +372,8 @@ namespace ApiGateway.UserAuthService.Controllers
             }
         }
 
-        [HttpPost("LogoutAgent/{userId}")]
-        [Authorize(Roles = "Agent")]
+        [HttpPost("Logout/{userId}")]
+        [Authorize(Roles = "Agent,Admin")]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -492,68 +381,24 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<UserResponseModel>> LogoutAgent(string userId)
         {
-            if (!ModelState.IsValid)
+            if (string.IsNullOrEmpty(userId))
             {
-                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
+                return BadRequest(new UserResponseModel(null, "Null or Empty user id",true));
             }
 
             try
             {
                 var user = await _userRepository.GetUserById(userId);
-                if (user == null)
-                {
-                    return NotFound("User not found.");
-                }
+                if (user == null) return NotFound(new UserResponseModel(null, $"User of id {userId} not found", true));
 
-                if (user.UserType != UserType.Agent)
-                {
-                    return BadRequest("Only agents can logout through this endpoint.");
-                }
+                if (user.UserType == UserType.Agent) await _loginActivityRepository.LogLogoutActivity(userId);
 
-                var logResult = await _loginActivityRepository.LogLogoutActivity(userId);
                 var result = new UserResponseModel(user, "Agent logged out successfully");
                 return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred during agent logout for user ID: {UserId}", userId);
-                return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred during logout");
-            }
-        }
-
-        [HttpPost("LogoutAdmin/{userId}")]
-        [Authorize(Roles = "Admin")]
-        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
-        [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<UserResponseModel>> LogoutAdmin(string userId)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(new UserResponseModel(null, "Invalid request data.", true));
-            }
-
-            try
-            {
-                var user = await _userRepository.GetUserById(userId);
-                if (user == null)
-                {
-                    return NotFound("User not found.");
-                }
-
-                if (user.UserType != UserType.Admin)
-                {
-                    return BadRequest("Only admins can logout through this endpoint.");
-                }
-
-                var result = new UserResponseModel(user, "Admin logged out successfully");
-                return result.Data != null ? Ok(result) : BadRequest(result);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "An error occurred during admin logout for user ID: {UserId}", userId);
                 return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred during logout");
             }
         }

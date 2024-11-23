@@ -125,7 +125,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "UserAuthService.Models.RequestModel.UserRequestModel",
+        "Type": "UserAuthService.Models.RequestModel.AgentRegisterRequestModel",
         "IsRequired": true
       }
     ],

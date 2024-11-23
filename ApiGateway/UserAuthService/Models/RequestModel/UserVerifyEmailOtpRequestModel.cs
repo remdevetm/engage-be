@@ -8,6 +8,7 @@ namespace UserAuthService.Models.RequestModel
     {
 
         [Required]
+        [Otp]
         public string Otp { get; set; }
         [Required]
         [EmailAddress]

@@ -1,7 +1,7 @@
 using MongoDB.Driver;
 using UserAuthService.Data.Interfaces;
-using UserAuthService.Models;
 using Microsoft.Extensions.Configuration;
+using UserAuthService.Models.Model;
 
 namespace UserAuthService.Data
 {
