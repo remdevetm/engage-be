@@ -15,30 +15,22 @@ namespace ApiGateway.UserAuthService.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-        private readonly IHashingService _hashingService;
         private readonly IEmailService _emailService;
         private readonly ILoginActivityRepository _loginActivityRepository;
-        private readonly IConfiguration _configuration;
         private readonly ILogger<UserController> _logger;
+   
 
         public UserController(
             IUserRepository userRepository,
-            IHashingService hashingService,
             IEmailService emailService,
             ILoginActivityRepository loginActivityRepository,
-            IConfiguration configuration,
             ILogger<UserController> logger)
         {
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
-            _hashingService = hashingService ?? throw new ArgumentNullException(nameof(hashingService));
             _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
             _loginActivityRepository = loginActivityRepository ?? throw new ArgumentNullException(nameof(loginActivityRepository));
-            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
-
-
-
 
         [HttpPost("CreateAgent")]
         [Authorize(Roles = "Admin")]
@@ -275,7 +267,7 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<UserResponseModel>> ResetPasswordAsync([FromBody] UserVerifyEmailOtpRequestModel userModel)
+        public async Task<ActionResult<UserResponseModel>> ForgotPassword([FromBody] UserVerifyEmailOtpRequestModel userModel)
         {
             if (!ModelState.IsValid)
             {
@@ -284,24 +276,23 @@ namespace ApiGateway.UserAuthService.Controllers
 
             try
             {
-
                 var email = userModel.Email.ToLower();
                 var user = await _userRepository.GetUserByEmail(email);
 
-                if (user == null) return NotFound(new UserResponseModel(null, $"User with email {email} does not exist.", true));
+                if (user == null)
+                    return NotFound(new UserResponseModel(null, $"User with email {email} does not exist.", true));
 
-                if (user.Otp != userModel.Otp) return BadRequest(new UserResponseModel(null, "Invalid Otp", true));
+                var (isValid, message) = await _userRepository.ValidateOtp(user, userModel.Otp);
+                if (!isValid)
+                    return BadRequest(new UserResponseModel(null, message, true));
 
                 var updateResult = await _userRepository.UpdateUserPassword(userModel.Password, user);
-                //if (updateResult.Data != null) updateResult.Data.Otp = string.Empty;
-
                 return updateResult.Data != null ? Ok(updateResult) : BadRequest(updateResult);
-                
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while processing ResetPasswordAsync for email: {Email}.", userModel?.Email);
-                return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred. Please try again later.");
+                return StatusCode(500, "An unexpected error occurred. Please try again later.");
             }
         }
 

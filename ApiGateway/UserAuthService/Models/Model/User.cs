@@ -51,6 +51,9 @@ namespace UserAuthService.Models.Model
         public string PasswordHash { get; set; }
         public bool MustChangePassword { get; set; }
         public string Otp { get; set; }
+        public DateTime? OtpExpiry { get; set; }
+        public int OtpAttempts { get; set; }
+        public DateTime? OtpLockoutEnd { get; set; }
     }
 
     public enum UserStatus

@@ -12,14 +12,14 @@ namespace UserAuthService.Repositories
     {
         private readonly IMongoDBContext _context;
         private readonly IMongoCollection<User> _users;
-        private readonly IMongoCollection<LoginActivity> _loginActivities;
         private readonly IHashingService _hashingService;
+        private readonly OtpSettings _otpSettings;
 
-        public UserRepository(IMongoDBContext context, IHashingService hashingService)
+        public UserRepository(IMongoDBContext context, IHashingService hashingService, OtpSettings otpSettings)
         {
-            _hashingService = hashingService;
+            _hashingService = hashingService ?? throw new ArgumentNullException(nameof(hashingService));
             _users = context.Users;
-            _loginActivities = context.LoginActivities;
+            _otpSettings = otpSettings ?? throw new ArgumentNullException(nameof(otpSettings));
         }
 
         public async Task<User> GetUserByEmail(string email)
@@ -45,8 +45,18 @@ namespace UserAuthService.Repositories
         {
             try
             {
+                user.OtpExpiry = DateTime.UtcNow.AddMinutes(_otpSettings.ExpiryMinutes);
+                user.OtpAttempts = 0;
+                user.OtpLockoutEnd = null;
+
                 var filter = Builders<User>.Filter.Eq(u => u.Id, user.Id);
-                var result = await _users.ReplaceOneAsync(filter, user);
+                var update = Builders<User>.Update
+                    .Set(u => u.Otp, user.Otp)
+                    .Set(u => u.OtpExpiry, user.OtpExpiry)
+                    .Set(u => u.OtpAttempts, user.OtpAttempts)
+                    .Set(u => u.OtpLockoutEnd, user.OtpLockoutEnd);
+
+                var result = await _users.UpdateOneAsync(filter, update);
 
                 if (result.ModifiedCount == 0)
                 {
@@ -60,6 +70,7 @@ namespace UserAuthService.Repositories
                 return new UserResponseModel(null, ex.Message, true);
             }
         }
+
         public async Task<UserResponseModel> UpdateUserPassword(string newPassword, User user)
         {
             try
@@ -296,6 +307,59 @@ namespace UserAuthService.Repositories
             catch (Exception ex)
             {
                 return new UserResponseModel(null, $"Error updating user profile: {ex.Message}", true);
+            }
+        }
+
+        public async Task<(bool isValid, string message)> ValidateOtp(User user, string otp)
+        {
+            try 
+            {
+                // Check if OTP exists
+                if (string.IsNullOrEmpty(user.Otp))
+                {
+                    return (false, "No OTP found. Please request a new one.");
+                }
+
+                // Check if OTP has expired
+                if (!user.OtpExpiry.HasValue || user.OtpExpiry < DateTime.UtcNow)
+                {
+                    return (false, "OTP has expired. Please request a new one.");
+                }
+
+                // Check if user is locked out
+                if (user.OtpLockoutEnd.HasValue && user.OtpLockoutEnd > DateTime.UtcNow)
+                {
+                    var remainingMinutes = Math.Ceiling((user.OtpLockoutEnd.Value - DateTime.UtcNow).TotalMinutes);
+                    return (false, $"Too many attempts. Please try again in {remainingMinutes} minutes.");
+                }
+
+                // Validate OTP
+                if (user.Otp != otp)
+                {
+                    user.OtpAttempts++;
+                    
+                    // Check if max attempts reached
+                    if (user.OtpAttempts >= 3) // You can make this configurable
+                    {
+                        user.OtpLockoutEnd = DateTime.UtcNow.AddMinutes(30); // You can make this configurable
+                        await UpdateUserOTP(user);
+                        return (false, "Maximum attempts reached. Account locked for 30 minutes.");
+                    }
+
+                    await UpdateUserOTP(user);
+                    return (false, $"Invalid OTP. {3 - user.OtpAttempts} attempts remaining.");
+                }
+
+                // Reset attempts on successful validation
+                user.OtpAttempts = 0;
+                user.OtpLockoutEnd = null;
+                await UpdateUserOTP(user);
+
+                return (true, "OTP validated successfully");
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Error validating OTP: {ex.Message}");
             }
         }
     }

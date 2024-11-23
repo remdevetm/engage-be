@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MongoDB.Driver;
 using UserAuthService.Services;
 using UserAuthService.Services.Interfaces;
+using UserAuthService.Models.Model;
 
 namespace UserAuthService
 {
@@ -22,6 +23,8 @@ namespace UserAuthService
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // Register OtpSettings
+            services.Configure<OtpSettings>(Configuration.GetSection("OtpSettings"));
 
             // Register MongoDB client
             services.AddSingleton<IMongoClient>(sp =>
