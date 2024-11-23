@@ -355,6 +355,13 @@ namespace UserAuthService.Repositories
                 user.OtpLockoutEnd = null;
                 await UpdateUserOTP(user);
 
+                //// Reset attempts and clear OTP after successful validation
+                //user.OtpAttempts = 0;
+                //user.OtpLockoutEnd = null;
+                //user.Otp = null; // Invalidate OTP after successful use
+                //user.OtpExpiry = null;
+                //await UpdateUserOTP(user);
+
                 return (true, "OTP validated successfully");
             }
             catch (Exception ex)
