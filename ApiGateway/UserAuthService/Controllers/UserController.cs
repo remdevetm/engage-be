@@ -347,7 +347,7 @@ namespace ApiGateway.UserAuthService.Controllers
             }
         }
 
-        [HttpPut("UpdateProfile/{userId}")]
+        [HttpPut("UpdateProfile")]
         [Authorize(Roles = "Agent,Admin")]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]

@@ -524,7 +524,7 @@
   {
     "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
     "Method": "UpdateProfile",
-    "RelativePath": "api/v1/User/UpdateProfile/{userId}",
+    "RelativePath": "api/v1/User/UpdateProfile",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -532,11 +532,6 @@
       {
         "Name": "request",
         "Type": "UserAuthService.Models.RequestModel.ProfileUpdateRequestModel",
-        "IsRequired": true
-      },
-      {
-        "Name": "userId",
-        "Type": "",
         "IsRequired": true
       }
     ],
