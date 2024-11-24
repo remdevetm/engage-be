@@ -338,7 +338,9 @@ namespace ApiGateway.UserAuthService.Controllers
 
                 var updateResult = await _userRepository.UpdateUserStatus(user);
 
-                return updateResult.Data != null ? Ok(updateResult.Message = "User deleted successfully") : BadRequest(updateResult);
+                if (updateResult.Data != null) updateResult.Message = "User deleted successully.";
+
+                return updateResult.Data != null ? Ok(updateResult) : BadRequest(updateResult);
             }
             catch (Exception ex)
             {
@@ -403,7 +405,7 @@ namespace ApiGateway.UserAuthService.Controllers
 
                 if (user.UserType == UserType.Agent) await _loginActivityRepository.LogLogoutActivity(userId);
 
-                var result = new UserResponseModel(user, "Agent logged out successfully");
+                var result = new UserResponseModel(user, "log out successful");
                 return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
