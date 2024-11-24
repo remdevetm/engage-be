@@ -356,31 +356,50 @@ namespace UserAuthService.Repositories
                     if (user.OtpAttempts >= _otpSettings.MaxAttempts)
                     {
                         user.OtpLockoutEnd = DateTime.UtcNow.AddMinutes(_otpSettings.LockoutMinutes);
-                        await UpdateUserOTP(user);
+                        await UpdateOtpAttempts(user);
                         return (false, $"Maximum attempts reached. Account locked for {_otpSettings.LockoutMinutes} minutes.");
                     }
 
-                    await UpdateUserOTP(user);
+                    await UpdateOtpAttempts(user);
                     return (false, $"Invalid OTP. {_otpSettings.MaxAttempts - user.OtpAttempts} attempts remaining.");
                 }
 
-                // Reset attempts on successful validation
+                // Reset OTP after successful validation
                 user.OtpAttempts = 0;
                 user.OtpLockoutEnd = null;
+                user.Otp = null; // Invalidate OTP after successful use
+                user.OtpExpiry = null;
                 await UpdateUserOTP(user);
-
-                //// Reset attempts and clear OTP after successful validation
-                //user.OtpAttempts = 0;
-                //user.OtpLockoutEnd = null;
-                //user.Otp = null; // Invalidate OTP after successful use
-                //user.OtpExpiry = null;
-                //await UpdateUserOTP(user);
 
                 return (true, "OTP validated successfully");
             }
             catch (Exception ex)
             {
                 return (false, $"Error validating OTP: {ex.Message}");
+            }
+        }
+
+        public async Task<UserResponseModel> UpdateOtpAttempts(User user)
+        {
+            try
+            {
+                var filter = Builders<User>.Filter.Eq(u => u.Id, user.Id);
+                var update = Builders<User>.Update
+                    .Set(u => u.OtpAttempts, user.OtpAttempts)
+                    .Set(u => u.OtpLockoutEnd, user.OtpLockoutEnd);
+
+                var result = await _users.UpdateOneAsync(filter, update);
+
+                if (result.ModifiedCount == 0)
+                {
+                    return new UserResponseModel(null, "OTP attempts not updated.", true);
+                }
+
+                return new UserResponseModel(user, "OTP attempts updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return new UserResponseModel(null, ex.Message, true);
             }
         }
     }

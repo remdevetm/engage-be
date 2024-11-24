@@ -18,5 +18,6 @@ namespace UserAuthService.Repositories.Interfaces
         Task<UserResponseModel> UpdateUserStatus(User user);
         Task<UserResponseModel> UpdateUserProfile(User user);
         Task<(bool isValid, string message)> ValidateOtp(User user, string otp);
+        Task<UserResponseModel> UpdateOtpAttempts(User user);
     }
 }
