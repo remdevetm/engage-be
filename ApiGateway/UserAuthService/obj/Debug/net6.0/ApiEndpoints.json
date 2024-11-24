@@ -176,7 +176,7 @@
   {
     "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
     "Method": "DeleteAgent",
-    "RelativePath": "api/v1/User/DeleteAgent/{userId}",
+    "RelativePath": "api/v1/User/Delete/{userId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -233,7 +233,7 @@
   },
   {
     "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
-    "Method": "ResetPasswordAsync",
+    "Method": "ForgotPassword",
     "RelativePath": "api/v1/User/ForgotPassword",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -291,66 +291,8 @@
   },
   {
     "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
-    "Method": "LoginAdmin",
-    "RelativePath": "api/v1/User/LoginAdmin",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "UserAuthService.Models.RequestModel.LoginRequestModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 401
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      },
-      {
-        "Type": "UserAuthService.Models.ResponseModel.UserResponseModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
     "Method": "LoginAgent",
-    "RelativePath": "api/v1/User/LoginAgent",
+    "RelativePath": "api/v1/User/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -358,64 +300,6 @@
       {
         "Name": "request",
         "Type": "UserAuthService.Models.RequestModel.LoginRequestModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 401
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      },
-      {
-        "Type": "UserAuthService.Models.ResponseModel.UserResponseModel",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
-    "Method": "LogoutAdmin",
-    "RelativePath": "api/v1/User/LogoutAdmin/{userId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -466,7 +350,7 @@
   {
     "ContainingType": "ApiGateway.UserAuthService.Controllers.UserController",
     "Method": "LogoutAgent",
-    "RelativePath": "api/v1/User/LogoutAgent/{userId}",
+    "RelativePath": "api/v1/User/Logout/{userId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -646,13 +530,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
-        "Type": "System.String",
+        "Name": "request",
+        "Type": "UserAuthService.Models.RequestModel.ProfileUpdateRequestModel",
         "IsRequired": true
       },
       {
-        "Name": "request",
-        "Type": "UserAuthService.Models.RequestModel.ProfileUpdateRequestModel",
+        "Name": "userId",
+        "Type": "",
         "IsRequired": true
       }
     ],

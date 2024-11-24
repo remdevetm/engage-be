@@ -16,6 +16,28 @@ namespace UserAuthService.Repositories
             _loginActivities = context.LoginActivities;
         }
 
+
+        public async Task<bool> IsUserLoggedIn(string userId)
+        {
+            try
+            {
+                var lastActivity = await _loginActivities
+                    .Find(x => x.UserId == userId)
+                    .SortByDescending(x => x.DateTime)
+                    .FirstOrDefaultAsync();
+
+                if (lastActivity == null || lastActivity.ActivityType == LoginActivityType.Logout)
+                {
+                    return false;
+                }
+                return lastActivity.ActivityType == LoginActivityType.Login;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public async Task<bool> LogLoginActivity(string userId)
         {
             try

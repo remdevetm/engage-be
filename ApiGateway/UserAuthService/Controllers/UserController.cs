@@ -67,11 +67,30 @@ namespace ApiGateway.UserAuthService.Controllers
                 if (result.Error) return BadRequest(result);
 
 
-                await _emailService.SendEmail(user.Email, "Welcome to the System - Login Credentials",
-                    _emailService.GetEmailBody(EmailType.LoginDetail,
-                    $"{user.Name},{user.Email},{tempPassword},{user.UserType.ToString()}"));
+                // Send welcome email
+                try
+                {
+                    await _emailService.SendEmail(
+                        user.Email,
+                        "Welcome to the System - Login Credentials",
+                        _emailService.GetEmailBody(
+                            EmailType.LoginDetail,
+                            $"{user.Name},{user.Email},{tempPassword},{user.UserType}"
+                        )
+                    );
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Failed to send welcome email to {Email}", user.Email);
+                }
 
-                return result.Data != null ? Ok(result.Message = "Agent created successfully") : BadRequest(result);
+                //// Clear sensitive data
+                //if ( result.Data != null)
+                //{
+                //    result.Data.PasswordHash = null;
+                //}
+                
+                return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
             {
@@ -115,7 +134,7 @@ namespace ApiGateway.UserAuthService.Controllers
                     _emailService.GetEmailBody(EmailType.LoginDetail,
                     $"{user.Name},{user.Email},{user.PasswordHash},{user.UserType.ToString()}"));
 
-                return result.Data != null ? Ok(result.Message = "Admin created successfully") : BadRequest(result);
+                return result.Data != null ? Ok(result) : BadRequest(result);
             }
             catch (Exception ex)
             {
@@ -335,7 +354,7 @@ namespace ApiGateway.UserAuthService.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(UserResponseModel), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<UserResponseModel>> UpdateProfile(string userId, [FromBody] ProfileUpdateRequestModel request)
+        public async Task<ActionResult<UserResponseModel>> UpdateProfile([FromBody] ProfileUpdateRequestModel request)
         {
             if (!ModelState.IsValid)
             {
@@ -344,8 +363,8 @@ namespace ApiGateway.UserAuthService.Controllers
 
             try
             {
-                var user = await _userRepository.GetUserById(userId);
-                if (user == null) return NotFound(new UserResponseModel(null, $"User of id {userId} not found", true));
+                var user = await _userRepository.GetUserById(request.UserId);
+                if (user == null) return NotFound(new UserResponseModel(null, $"User of id {request.UserId} not found", true));
 
                 user.Name = request.Name;
                 user.Surname = request.Surname;
@@ -358,7 +377,7 @@ namespace ApiGateway.UserAuthService.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while updating profile for user with ID: {Id}", userId);
+                _logger.LogError(ex, "An error occurred while updating profile for user with ID: {Id}", request.UserId);
                 return StatusCode((int)HttpStatusCode.InternalServerError, "An unexpected error occurred while updating the profile.");
             }
         }

@@ -1,9 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using UserAuthService.Attributes;
 
 namespace UserAuthService.Models.RequestModel
 {
     public class ProfileUpdateRequestModel
     {
+        [Required]
+        [Hex24String]
+        public string UserId { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

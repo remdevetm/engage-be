@@ -5,6 +5,7 @@ using UserAuthService.Models.RequestModel;
 using UserAuthService.Models.ResponseModel;
 using UserAuthService.Repositories.Interfaces;
 using UserAuthService.Services.Interfaces;
+using Microsoft.Extensions.Options;
 
 namespace UserAuthService.Repositories
 {
@@ -15,11 +16,14 @@ namespace UserAuthService.Repositories
         private readonly IHashingService _hashingService;
         private readonly OtpSettings _otpSettings;
 
-        public UserRepository(IMongoDBContext context, IHashingService hashingService, OtpSettings otpSettings)
+        public UserRepository(
+            IMongoDBContext context, 
+            IHashingService hashingService, 
+            IOptions<OtpSettings> otpSettings)
         {
             _hashingService = hashingService ?? throw new ArgumentNullException(nameof(hashingService));
             _users = context.Users;
-            _otpSettings = otpSettings ?? throw new ArgumentNullException(nameof(otpSettings));
+            _otpSettings = otpSettings.Value ?? throw new ArgumentNullException(nameof(otpSettings));
         }
 
         public async Task<User> GetUserByEmail(string email)
@@ -237,7 +241,11 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                var filter = Builders<User>.Filter.Eq(u => u.Id, userId);
+                var filterBuilder = Builders<User>.Filter;
+                var filter = filterBuilder.And(
+                    filterBuilder.Eq(u => u.Id, userId),
+                    filterBuilder.Ne(u => u.Status, UserStatus.Deleted)
+                );
                 var update = Builders<User>.Update.Set(u => u.LastLogin, DateTime.UtcNow);
                 var result = await _users.UpdateOneAsync(filter, update);
                 return result.ModifiedCount > 0;
@@ -252,7 +260,13 @@ namespace UserAuthService.Repositories
         {
             try
             {
-                var filter = Builders<User>.Filter.Eq(u => u.Id, userId);
+                // var filter = Builders<User>.Filter.Eq(u => u.Id, userId);
+                // return await _users.Find(filter).FirstOrDefaultAsync();
+                var filterBuilder = Builders<User>.Filter;
+                var filter = filterBuilder.And(
+                    filterBuilder.Eq(u => u.Id, userId),
+                    filterBuilder.Ne(u => u.Status, UserStatus.Deleted)
+                );
                 return await _users.Find(filter).FirstOrDefaultAsync();
             }
             catch (Exception ex)
@@ -339,15 +353,15 @@ namespace UserAuthService.Repositories
                     user.OtpAttempts++;
                     
                     // Check if max attempts reached
-                    if (user.OtpAttempts >= 3) // You can make this configurable
+                    if (user.OtpAttempts >= _otpSettings.MaxAttempts)
                     {
-                        user.OtpLockoutEnd = DateTime.UtcNow.AddMinutes(30); // You can make this configurable
+                        user.OtpLockoutEnd = DateTime.UtcNow.AddMinutes(_otpSettings.LockoutMinutes);
                         await UpdateUserOTP(user);
-                        return (false, "Maximum attempts reached. Account locked for 30 minutes.");
+                        return (false, $"Maximum attempts reached. Account locked for {_otpSettings.LockoutMinutes} minutes.");
                     }
 
                     await UpdateUserOTP(user);
-                    return (false, $"Invalid OTP. {3 - user.OtpAttempts} attempts remaining.");
+                    return (false, $"Invalid OTP. {_otpSettings.MaxAttempts - user.OtpAttempts} attempts remaining.");
                 }
 
                 // Reset attempts on successful validation
