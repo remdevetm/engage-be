@@ -130,9 +130,9 @@ namespace ApiGateway.UserAuthService.Controllers
                 if (result.Error) return BadRequest(result);
 
 
-                await _emailService.SendEmail(user.Email, "Welcome to the System - Login Credentials",
-                    _emailService.GetEmailBody(EmailType.LoginDetail,
-                    $"{user.Name},{user.Email},{user.PasswordHash},{user.UserType.ToString()}"));
+                //await _emailService.SendEmail(user.Email, "Welcome to the System - Login Credentials",
+                //    _emailService.GetEmailBody(EmailType.LoginDetail,
+                //    $"{user.Name},{user.Email},{user.PasswordHash},{user.UserType.ToString()}"));
 
                 return result.Data != null ? Ok(result) : BadRequest(result);
             }

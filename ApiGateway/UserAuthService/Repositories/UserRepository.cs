@@ -328,31 +328,28 @@ namespace UserAuthService.Repositories
         {
             try 
             {
-                // Check if OTP exists
+
                 if (string.IsNullOrEmpty(user.Otp))
                 {
                     return (false, "No OTP found. Please request a new one.");
                 }
 
-                // Check if OTP has expired
                 if (!user.OtpExpiry.HasValue || user.OtpExpiry < DateTime.UtcNow)
                 {
                     return (false, "OTP has expired. Please request a new one.");
                 }
 
-                // Check if user is locked out
                 if (user.OtpLockoutEnd.HasValue && user.OtpLockoutEnd > DateTime.UtcNow)
                 {
                     var remainingMinutes = Math.Ceiling((user.OtpLockoutEnd.Value - DateTime.UtcNow).TotalMinutes);
                     return (false, $"Too many attempts. Please try again in {remainingMinutes} minutes.");
                 }
 
-                // Validate OTP
+
                 if (user.Otp != otp)
                 {
                     user.OtpAttempts++;
                     
-                    // Check if max attempts reached
                     if (user.OtpAttempts >= _otpSettings.MaxAttempts)
                     {
                         user.OtpLockoutEnd = DateTime.UtcNow.AddMinutes(_otpSettings.LockoutMinutes);
