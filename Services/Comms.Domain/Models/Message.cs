@@ -9,13 +9,12 @@ public class Message : Aggregate<string>
     public string Text { get; private set; } = default!;
     public Channel Channel { get; private set; } = Channel.None;
     public Direction Direction { get; private set; } = Direction.None;
-    public Status Status { get; private set; } = Status.New;
     public string From { get; private set; } = default!;
     public string To { get; private set; } = default!;
 
 
     public static Message Create(string id, string clientId, string agentId, string replyToMessageId, string text, Channel channel, Direction direction,
-        string from, string to, string subject, Status status)
+        string from, string to, string subject)
     {
         var message = new Message
         {
@@ -28,25 +27,12 @@ public class Message : Aggregate<string>
             Direction = direction,
             From = from,
             To = to,
-            Subject = subject,
-            Status = status
-            
+            Subject = subject
         };
 
         message.AddDomainEvent(new MessageCreatedEvent(message));
 
         return message;
-    }
-
-    public void MarkAsRead()
-    {
-        if (Status == Status.Opened)
-        {
-            return;
-        }
-
-        Status = Status.Opened;
-        LastModified = DateTime.UtcNow;
     }
 }
 

@@ -22,10 +22,9 @@
                                text: messageDto.Text,
                                channel: Channel.Email,
                                direction: Direction.Outbound,
-                               from: messageDto.From,
+                               from: "System",
                                subject: messageDto.Subject,
-                               to: messageDto.To,
-                               status:Status.New);
+                               to: messageDto.To);
             return message;
         }
     }

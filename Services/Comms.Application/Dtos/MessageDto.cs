@@ -6,5 +6,4 @@ public record MessageDto(
     string ReplyToMessageId,
     string Text,
     string Subject,
-    string To,
-    string From);
+    string To);

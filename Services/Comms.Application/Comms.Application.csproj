@@ -17,4 +17,9 @@
     <PackageReference Include="SendGrid" Version="9.29.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Lead\EventHandlers\Domain\" />
+    <Folder Include="Features\Lead\EventHandlers\Integration\" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,6 @@
 ﻿global using Microsoft.EntityFrameworkCore;
 global using MediatR;
 global using Comms.Domain.Models;
-global using Comms.Domain.Enums;
 global using BuildingBlocks.Exceptions;
 global using BuildingBlocks.Behaviors;
 global using Microsoft.Extensions.Configuration;
@@ -16,7 +15,6 @@ global using Comms.Domain.Events;
 global using MassTransit;
 global using Microsoft.Extensions.Logging;
 global using Comms.Application.Extensions;
-global using Comms.Application.Data;
-global using Comms.Application.Services.Interfaces;
 global using Comms.Application.Messages.Commands.CreateMessage;
 global using Comms.Domain.Services;
+global using Comms.Domain.Enums.Message;

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "KLtz1JBE1rIw1g0wqoD3pERDkq3BPhxUp0pADlbUrs86X5IrydgHVbGjr2XKR5A9MBrRQW5/gztUGUaC9YFfvQ==",
+  "dgSpecHash": "iE505WJDu0s=",
   "success": true,
-  "projectFilePath": "C:\\Param\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj",
+  "projectFilePath": "C:\\Users\\USER\\source\\repos\\engage-be\\Services\\Comms.Domain\\Comms.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ayola\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",
-    "C:\\Users\\ayola\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\ayola\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+    "C:\\Users\\USER\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }
