@@ -18,3 +18,4 @@ global using Comms.Application.Extensions;
 global using Comms.Application.Messages.Commands.CreateMessage;
 global using Comms.Domain.Services;
 global using Comms.Domain.Enums.Message;
+global using Comms.Application.Contracts.Infrastructure.Persistence;
