@@ -415,3 +415,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Ignore NuGet-related auto-generated files
+*.nuget.*
+project.assets.json
+project.nuget.cache
+*.AssemblyInfoInputs.cache
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.AssemblyReference.cache
