@@ -1,4 +1,6 @@
-﻿namespace Comms.Application.Features.Message.Commands.SendEmailMessage
+﻿using Comms.Application.Features.Message.Commands.CreateMessage;
+
+namespace Comms.Application.Features.Message.Commands.SendEmailMessage
 {
     public class SendEmailCommandHandler(IApplicationDbContext dbContext) : ICommandHandler<SendEmailCommand, CreateMessageResult>
     {
@@ -12,9 +14,9 @@
             return new CreateMessageResult(message.Id);
         }
 
-        private Message CreateNewMessage(MessageDto messageDto)
+        private Domain.Models.Message CreateNewMessage(MessageDto messageDto)
         {
-            var message = Message.Create(
+            var message = Domain.Models.Message.Create(
                                id: Guid.NewGuid().ToString(),
                                clientId: messageDto.ClientId,
                                agentId: messageDto.AgentId,

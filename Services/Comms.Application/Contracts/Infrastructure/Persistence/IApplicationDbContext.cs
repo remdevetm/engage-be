@@ -1,4 +1,6 @@
-﻿namespace Comms.Application.Contracts.Infrastructure.Persistence;
+﻿using Comms.Domain.Models;
+
+namespace Comms.Application.Contracts.Infrastructure.Persistence;
 
 public interface IApplicationDbContext
 {

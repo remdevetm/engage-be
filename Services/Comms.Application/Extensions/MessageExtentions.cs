@@ -1,5 +1,4 @@
-﻿
-namespace Comms.Application.Extensions
+﻿namespace Comms.Application.Extensions
 {
     public static class MessageExtentions
     {

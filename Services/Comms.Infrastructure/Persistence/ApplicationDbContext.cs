@@ -1,4 +1,6 @@
-﻿namespace Comms.Infrastructure.Persistence;
+﻿using Comms.Application.Contracts.Infrastructure.Persistence;
+
+namespace Comms.Infrastructure.Persistence;
 public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

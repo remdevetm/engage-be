@@ -14,9 +14,9 @@ public class CreateMessageHandler(IApplicationDbContext dbContext)
         return new CreateMessageResult(message.Id);
     }
 
-    private Message CreateNewMessage(MessageDto messageDto)
+    private Domain.Models.Message CreateNewMessage(MessageDto messageDto)
     {
-        var newMessage = Message.Create(
+        var newMessage = Domain.Models.Message.Create(
                 id: Guid.NewGuid().ToString(),
                 clientId: messageDto.ClientId,
                 agentId: messageDto.AgentId,

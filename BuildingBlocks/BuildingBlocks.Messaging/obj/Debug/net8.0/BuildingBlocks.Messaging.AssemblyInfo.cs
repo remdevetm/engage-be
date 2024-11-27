@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BuildingBlocks.Messaging")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d517f54082ad3ee9be2fe457fbd340a9c36bcd9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5564fe9c51e7d0ea14336c6d790bee0babf1b644")]
 [assembly: System.Reflection.AssemblyProductAttribute("BuildingBlocks.Messaging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BuildingBlocks.Messaging")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

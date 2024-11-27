@@ -1,6 +1,4 @@
-﻿using Comms.Application.Messages.Queries.GetMessagesByAgentAndClient;
-
-namespace Comms.API.Endpoints.Message;
+﻿namespace Comms.API.Endpoints.Message;
 
 public record GetMessagesByAgentAndClientResponse(IEnumerable<MessageDto> Messages);
 

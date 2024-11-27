@@ -1,6 +1,4 @@
-﻿using Comms.Infrastructure.Services;
-
-namespace Comms.Infrastructure;
+﻿namespace Comms.Infrastructure;
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices
@@ -12,7 +10,7 @@ public static class DependencyInjection
         // Add services to the container.
         services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
         services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
-        services.AddScoped<IMessagingService, MessagingService>();
+        services.AddScoped<IMessageService, MessageService>();
 
         services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {

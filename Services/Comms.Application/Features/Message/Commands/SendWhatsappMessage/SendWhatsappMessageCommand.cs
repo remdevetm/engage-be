@@ -1,4 +1,6 @@
-﻿namespace Comms.Application.Features.Message.Commands.SendWhatsappMessage
+﻿using Comms.Application.Features.Message.Commands.CreateMessage;
+
+namespace Comms.Application.Features.Message.Commands.SendWhatsappMessage
 {
     public class SendWhatsappMessageCommand : ICommand<CreateMessageResult>
     {

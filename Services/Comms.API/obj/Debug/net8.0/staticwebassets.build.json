@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "Zx7/sBzYUqdTo88TnRJklulq2DOuXYIyTjNE1Fgs+xA=",
+  "Hash": "YWe+QhcML+niedBlb4RCnqhfJ/P5MS1/HngBxwayxPs=",
   "Source": "Comms.API",
   "BasePath": "_content/Comms.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

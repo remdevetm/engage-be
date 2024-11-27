@@ -1086,7 +1086,10 @@
           "Microsoft.FeatureManagement.AspNetCore": "3.2.0"
         },
         "runtime": {
-          "BuildingBlocks.dll": {}
+          "BuildingBlocks.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "BuildingBlocks.Messaging/1.0.0": {
@@ -1094,7 +1097,10 @@
           "MassTransit.RabbitMQ": "8.1.3"
         },
         "runtime": {
-          "BuildingBlocks.Messaging.dll": {}
+          "BuildingBlocks.Messaging.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Comms.Application/1.0.0": {
@@ -1106,7 +1112,10 @@
           "SendGrid": "9.29.3"
         },
         "runtime": {
-          "Comms.Application.dll": {}
+          "Comms.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Comms.Domain/1.0.0": {
@@ -1114,7 +1123,10 @@
           "MediatR": "12.4.1"
         },
         "runtime": {
-          "Comms.Domain.dll": {}
+          "Comms.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

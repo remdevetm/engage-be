@@ -1,7 +1,7 @@
 ﻿namespace Comms.Application.Features.Message.EventHandlers.Domain
 {
     public class MessageCreatedEventHandler
-        (IPublishEndpoint publishEndpoint, IFeatureManager featureManager, ILogger<MessageCreatedEventHandler> logger, IMessagingService messagingService)
+        (IPublishEndpoint publishEndpoint, IFeatureManager featureManager, ILogger<MessageCreatedEventHandler> logger, IMessageService messagingService)
         : INotificationHandler<MessageCreatedEvent>
     {
         public async Task Handle(MessageCreatedEvent domainEvent, CancellationToken cancellationToken)
