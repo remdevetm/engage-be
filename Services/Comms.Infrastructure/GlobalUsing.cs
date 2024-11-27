@@ -1,0 +1,15 @@
+﻿global using Comms.Domain.Abstractions;
+global using Microsoft.EntityFrameworkCore.ChangeTracking;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using Microsoft.EntityFrameworkCore;
+global using MediatR;
+global using Comms.Domain.Models;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Comms.Domain.Enums;
+global using System.Reflection;
+global using Comms.Infrastructure.Data;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Configuration;
+global using Comms.Application.Data;
+global using MongoDB.Driver;
+global using Comms.Infrastructure.Data.Interceptors;
