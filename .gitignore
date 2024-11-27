@@ -34,7 +34,7 @@ bld/
 
 # Ignore build outputs
 bin/
-obj/
+*/obj/*
 
 # Ignore build outputs
 bin/
